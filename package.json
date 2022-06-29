@@ -25,6 +25,7 @@
   "keywords": [
     "capacitor",
     "plugin",
+    "geocoder",
     "native"
   ],
   "scripts": {

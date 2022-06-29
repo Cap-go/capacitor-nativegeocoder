@@ -9,10 +9,23 @@ import Capacitor
 public class NativeGeocoderPlugin: CAPPlugin {
     private let implementation = NativeGeocoder()
 
-    @objc func echo(_ call: CAPPluginCall) {
-        let value = call.getString("value") ?? ""
-        call.resolve([
-            "value": implementation.echo(value)
-        ])
+    @objc func reverseGeocode(_ call: CAPPluginCall) {
+        guard let addressString = call.getString("addressString") else {
+            call.reject("Missing addressString")
+            return
+        }
+        implementation.reverseGeocode(addressString: addressString, call: call)
+    }
+
+    @objc func forwardGeocode(_ call: CAPPluginCall) {
+        guard let latitude = call.getNumber("latitude") else {
+            call.reject("Missing latitude")
+            return
+        }
+        guard let longitude = call.getNumber("longitude") else {
+            call.reject("Missing longitude")
+            return
+        }
+        implementation.forwardGeocode(latitude: latitude, longitude: longitude, call: call)
     }
 }
