@@ -18,11 +18,11 @@ public class NativeGeocoderPlugin: CAPPlugin {
     }
 
     @objc func forwardGeocode(_ call: CAPPluginCall) {
-        guard let latitude = call.getNumber("latitude") else {
+        guard let latitude = call.getDouble("latitude") else {
             call.reject("Missing latitude")
             return
         }
-        guard let longitude = call.getNumber("longitude") else {
+        guard let longitude = call.getDouble("longitude") else {
             call.reject("Missing longitude")
             return
         }

@@ -28,8 +28,8 @@ public class NativeGeocoderPlugin extends Plugin {
     }
     @PluginMethod
     public void forwardGeocode(PluginCall call) {
-        Number latitude = call.getNumber("latitude");
-        Number longitude = call.getNumber("longitude");
+        Number latitude = call.getDouble("latitude");
+        Number longitude = call.getDouble("longitude");
         if (latitude == null || longitude == null) {
             call.reject("Missing latitude or longitude");
             return;
