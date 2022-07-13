@@ -10,14 +10,6 @@ public class NativeGeocoderPlugin: CAPPlugin {
     private let implementation = NativeGeocoder()
 
     @objc func reverseGeocode(_ call: CAPPluginCall) {
-        guard let addressString = call.getString("addressString") else {
-            call.reject("Missing addressString")
-            return
-        }
-        implementation.reverseGeocode(addressString: addressString, call: call)
-    }
-
-    @objc func forwardGeocode(_ call: CAPPluginCall) {
         guard let latitude = call.getDouble("latitude") else {
             call.reject("Missing latitude")
             return
@@ -26,6 +18,14 @@ public class NativeGeocoderPlugin: CAPPlugin {
             call.reject("Missing longitude")
             return
         }
-        implementation.forwardGeocode(latitude: latitude, longitude: longitude, call: call)
+        implementation.reverseGeocode(latitude: latitude, longitude: longitude, call: call)
+    }
+
+    @objc func forwardGeocode(_ call: CAPPluginCall) {
+        guard let addressString = call.getString("addressString") else {
+            call.reject("Missing addressString")
+            return
+        }
+        implementation.forwardGeocode(address: addressString, call: call)
     }
 }
