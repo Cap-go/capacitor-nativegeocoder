@@ -2,21 +2,6 @@ import Foundation
 import Capacitor
 import CoreLocation
 
-struct NativeGeocoderResult: Encodable {
-    var latitude: String?
-    var longitude: String?
-    var countryCode: String?
-    var countryName: String?
-    var postalCode: String?
-    var administrativeArea: String?
-    var subAdministrativeArea: String?
-    var locality: String?
-    var subLocality: String?
-    var thoroughfare: String?
-    var subThoroughfare: String?
-    var areasOfInterest: [String]?
-}
-
 struct NativeGeocoderError {
     var message: String
 }
@@ -29,8 +14,8 @@ struct NativeGeocoderOptions: Decodable {
 
 @objc public class NativeGeocoder: NSObject {
 
-    typealias ReverseGeocodeCompletionHandler = ([NativeGeocoderResult]?, NativeGeocoderError?) -> Void
-    typealias ForwardGeocodeCompletionHandler = ([NativeGeocoderResult]?, NativeGeocoderError?) -> Void
+    typealias ReverseGeocodeCompletionHandler = ([JSObject]?, NativeGeocoderError?) -> Void
+    typealias ForwardGeocodeCompletionHandler = ([JSObject]?, NativeGeocoderError?) -> Void
     private static let MAX_RESULTS_COUNT = 5
 
     func reverseGeocode(latitude: Double, longitude: Double, call: CAPPluginCall) {
@@ -49,12 +34,7 @@ struct NativeGeocoderOptions: Decodable {
             if let error = error {
                 call.reject(error.message)
             } else {
-                if let encodedResult = try? JSONEncoder().encode(resultObj),
-                    let result = try? JSONSerialization.jsonObject(with: encodedResult, options: .allowFragments) as? JSObject {
-                    call.resolve(result)
-                } else {
-                    call.reject("Invalid JSON result")
-                }
+                call.resolve(["results": resultObj])
             }
         })
     }
@@ -93,32 +73,10 @@ struct NativeGeocoderOptions: Decodable {
         
         if let placemarks = placemarks {
             let maxResultObjects = placemarks.count >= maxResults ? maxResults : placemarks.count
-            var resultObj = [NativeGeocoderResult]()
+            var resultObj = [JSObject]()
             
             for i in 0..<maxResultObjects {
-                // https://developer.apple.com/documentation/corelocation/clplacemark
-                var latitude = ""
-                if let lat = placemarks[i].location?.coordinate.latitude {
-                    latitude = "\(lat)"
-                }
-                var longitude = ""
-                if let lon = placemarks[i].location?.coordinate.longitude {
-                    longitude = "\(lon)"
-                }
-                let placemark = NativeGeocoderResult(
-                    latitude: latitude,
-                    longitude: longitude,
-                    countryCode: placemarks[i].isoCountryCode ?? "",
-                    countryName: placemarks[i].country ?? "",
-                    postalCode: placemarks[i].postalCode ?? "",
-                    administrativeArea: placemarks[i].administrativeArea ?? "",
-                    subAdministrativeArea: placemarks[i].subAdministrativeArea ?? "",
-                    locality: placemarks[i].locality ?? "",
-                    subLocality: placemarks[i].subLocality ?? "",
-                    thoroughfare: placemarks[i].thoroughfare ?? "",
-                    subThoroughfare: placemarks[i].subThoroughfare ?? "",
-                    areasOfInterest: placemarks[i].areasOfInterest ?? []
-                )
+                let placemark = makePosition(placemarks[i])
                 resultObj.append(placemark)
             }
             
@@ -146,12 +104,7 @@ struct NativeGeocoderOptions: Decodable {
             if let error = error {
                 call.reject(error.message)
             } else {
-                if let encodedResult = try? JSONEncoder().encode(resultObj),
-                    let result = try? JSONSerialization.jsonObject(with: encodedResult, options: .allowFragments) as? JSObject {
-                    call.resolve(result)
-                } else {
-                    call.reject("Invalid JSON result")
-                }
+                call.resolve(["results": resultObj])
             }
         })
     }
@@ -181,6 +134,23 @@ struct NativeGeocoderOptions: Decodable {
             })
         }
     }
+    
+    private func makePosition(_ placemark: CLPlacemark) -> JSObject {
+        var ret = JSObject()
+        ret["latitude"] = placemark.location?.coordinate.latitude ?? ""
+        ret["longitude"] = placemark.location?.coordinate.longitude ?? ""
+        ret["countryCode"] = placemark.isoCountryCode ?? ""
+        ret["countryName"] = placemark.country ?? ""
+        ret["postalCode"] = placemark.postalCode ?? ""
+        ret["administrativeArea"] = placemark.administrativeArea ?? ""
+        ret["subAdministrativeArea"] = placemark.subAdministrativeArea ?? ""
+        ret["locality"] = placemark.locality ?? ""
+        ret["subLocality"] = placemark.subLocality ?? ""
+        ret["thoroughfare"] = placemark.thoroughfare ?? ""
+        ret["subThoroughfare"] = placemark.subThoroughfare ?? ""
+        ret["areasOfInterest"] = placemark.areasOfInterest ?? []
+        return ret
+    }
 
     private func createForwardGeocodeResult(_ placemarks: [CLPlacemark]?, _ error: Error?, maxResults: Int, completionHandler: @escaping ForwardGeocodeCompletionHandler) {
         guard error == nil else {
@@ -190,27 +160,12 @@ struct NativeGeocoderOptions: Decodable {
         
         if let placemarks = placemarks {
             let maxResultObjects = placemarks.count >= maxResults ? maxResults : placemarks.count
-            var resultObj = [NativeGeocoderResult]()
+            var resultObj = [JSObject]()
             
             for i in 0..<maxResultObjects {
                 if let latitude = placemarks[i].location?.coordinate.latitude,
                     let longitude = placemarks[i].location?.coordinate.longitude {
-                
-                    // https://developer.apple.com/documentation/corelocation/clplacemark
-                    let placemark = NativeGeocoderResult(
-                        latitude: "\(latitude)",
-                        longitude: "\(longitude)",
-                        countryCode: placemarks[i].isoCountryCode ?? "",
-                        countryName: placemarks[i].country ?? "",
-                        postalCode: placemarks[i].postalCode ?? "",
-                        administrativeArea: placemarks[i].administrativeArea ?? "",
-                        subAdministrativeArea: placemarks[i].subAdministrativeArea ?? "",
-                        locality: placemarks[i].locality ?? "",
-                        subLocality: placemarks[i].subLocality ?? "",
-                        thoroughfare: placemarks[i].thoroughfare ?? "",
-                        subThoroughfare: placemarks[i].subThoroughfare ?? "",
-                        areasOfInterest: placemarks[i].areasOfInterest ?? []
-                    )
+                    let placemark = makePosition(placemarks[i])
                     resultObj.append(placemark)
                 }
             }
