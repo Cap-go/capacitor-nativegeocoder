@@ -45,12 +45,12 @@ struct NativeGeocoderOptions: Decodable {
         options.defaultLocale = call.getString("defaultLocale")
         options.maxResults = call.getInt("maxResults") ?? 1
 
-        reverseGeocodeLocationHandler(location, options: options, completionHandler: { [weak self] (resultObj, error) in
+        reverseGeocodeLocationHandler(location, options: options, completionHandler: { (resultObj, error) in
             if let error = error {
                 call.reject(error.message)
             } else {
                 if let encodedResult = try? JSONEncoder().encode(resultObj),
-                    let result = try? JSONSerialization.jsonObject(with: encodedResult, options: .allowFragments) as? [Dictionary<String,Any>] {
+                    let result = try? JSONSerialization.jsonObject(with: encodedResult, options: .allowFragments) as? JSObject {
                     call.resolve(result)
                 } else {
                     call.reject("Invalid JSON result")
@@ -142,12 +142,12 @@ struct NativeGeocoderOptions: Decodable {
         options.defaultLocale = call.getString("defaultLocale")
         options.maxResults = call.getInt("maxResults") ?? 1
         
-        forwardGeocodeHandler(address, options: options, completionHandler: { [weak self] (resultObj, error) in
+        forwardGeocodeHandler(address, options: options, completionHandler: { (resultObj, error) in
             if let error = error {
                 call.reject(error.message)
             } else {
                 if let encodedResult = try? JSONEncoder().encode(resultObj),
-                    let result = try? JSONSerialization.jsonObject(with: encodedResult, options: .allowFragments) as? [Dictionary<String,Any>] {
+                    let result = try? JSONSerialization.jsonObject(with: encodedResult, options: .allowFragments) as? JSObject {
                     call.resolve(result)
                 } else {
                     call.reject("Invalid JSON result")
