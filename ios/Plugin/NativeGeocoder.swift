@@ -1,4 +1,5 @@
 import Foundation
+import Capacitor
 import CoreLocation
 
 struct NativeGeocoderResult: Encodable {
@@ -32,8 +33,7 @@ struct NativeGeocoderOptions: Decodable {
     typealias ForwardGeocodeCompletionHandler = ([NativeGeocoderResult]?, NativeGeocoderError?) -> Void
     private static let MAX_RESULTS_COUNT = 5
 
-    // MARK: - REVERSE GEOCODE
-    @objc(reverseGeocode:) func reverseGeocode(latitude: Double, longitude: Double, call: CAPPluginCall) {            
+    func reverseGeocode(latitude: Double, longitude: Double, call: CAPPluginCall) {
         if (CLGeocoder().isGeocoding) {
             call.reject("Geocoder is busy. Please try again later.")
             return
@@ -41,9 +41,9 @@ struct NativeGeocoderOptions: Decodable {
         
         let location = CLLocation(latitude: latitude, longitude: longitude)
         var options = NativeGeocoderOptions(useLocale: true, defaultLocale: nil, maxResults: 1)
-        options.useLocale = call.getBoolean("useLocale") ?? true
-        options.defaultLocale = call.getString()
-        options.maxResults = call.getNumber() ?? 1
+        options.useLocale = call.getBool("useLocale") ?? true
+        options.defaultLocale = call.getString("defaultLocale")
+        options.maxResults = call.getInt("maxResults") ?? 1
 
         reverseGeocodeLocationHandler(location, options: options, completionHandler: { [weak self] (resultObj, error) in
             if let error = error {
@@ -130,8 +130,7 @@ struct NativeGeocoderOptions: Decodable {
     }
     
     
-    // MARK: - FORWARD GEOCODE
-    @objc(forwardGeocode:)func forwardGeocode(address: String, call: CAPPluginCall) {
+    func forwardGeocode(address: String, call: CAPPluginCall) {
         
         if (CLGeocoder().isGeocoding) {
             call.reject("Geocoder is busy. Please try again later.")
@@ -139,9 +138,9 @@ struct NativeGeocoderOptions: Decodable {
         }
         
         var options = NativeGeocoderOptions(useLocale: true, defaultLocale: nil, maxResults: 1)
-        options.useLocale = call.getBoolean("useLocale") ?? true
-        options.defaultLocale = call.getString()
-        options.maxResults = call.getNumber() ?? 1
+        options.useLocale = call.getBool("useLocale") ?? true
+        options.defaultLocale = call.getString("defaultLocale")
+        options.maxResults = call.getInt("maxResults") ?? 1
         
         forwardGeocodeHandler(address, options: options, completionHandler: { [weak self] (resultObj, error) in
             if let error = error {
