@@ -9,6 +9,26 @@ npm install @capgo/nativegeocoder
 npx cap sync
 ```
 
+## iOS
+
+Apple requires privacy descriptions to be specified in `Info.plist` for location information:
+
+- `NSLocationAlwaysUsageDescription` (`Privacy - Location Always Usage Description`)
+- `NSLocationWhenInUseUsageDescription` (`Privacy - Location When In Use Usage Description`)
+
+Read about [Configuring `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) in the [iOS Guide](https://capacitorjs.com/docs/ios) for more information on setting iOS permissions in Xcode
+
+## Android
+
+This API requires the following permissions be added to your `AndroidManifest.xml`:
+
+```xml
+<!-- Geolocation API -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-feature android:name="android.hardware.location.gps" />
+```
+
 ## API
 
 <docgen-index>
