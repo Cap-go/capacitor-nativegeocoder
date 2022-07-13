@@ -9,6 +9,12 @@ npm install @capgo/nativegeocoder
 npx cap sync
 ```
 
+then import this into your code:
+
+```javascript
+import { NativeGeocoder } from '@capgo/nativegeocoder';
+```
+
 ## iOS
 
 Apple requires privacy descriptions to be specified in `Info.plist` for location information:
