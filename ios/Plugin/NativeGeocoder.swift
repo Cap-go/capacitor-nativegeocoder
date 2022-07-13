@@ -34,7 +34,7 @@ struct NativeGeocoderOptions: Decodable {
             if let error = error {
                 call.reject(error.message)
             } else {
-                call.resolve(["results": resultObj])
+                call.resolve(["addresses": resultObj])
             }
         })
     }
@@ -104,7 +104,7 @@ struct NativeGeocoderOptions: Decodable {
             if let error = error {
                 call.reject(error.message)
             } else {
-                call.resolve(["results": resultObj])
+                call.resolve(["addresses": resultObj])
             }
         })
     }
