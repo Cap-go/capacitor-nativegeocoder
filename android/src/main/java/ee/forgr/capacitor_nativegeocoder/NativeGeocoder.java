@@ -58,8 +58,8 @@ public class NativeGeocoder {
 
                     // https://developer.android.com/reference/android/location/Address.html
                     JSONObject placemark = new JSONObject();
-                    placemark.put("latitude", !String.valueOf(address.getLatitude()).isEmpty() ? address.getLatitude() : "");
-                    placemark.put("longitude", !String.valueOf(address.getLongitude()).isEmpty() ? address.getLongitude() : "");
+                    placemark.put("latitude", !String.valueOf(address.getLatitude()).isEmpty() ? address.getLatitude() : 0);
+                    placemark.put("longitude", !String.valueOf(address.getLongitude()).isEmpty() ? address.getLongitude() : 0);
                     placemark.put("countryCode", address.getCountryCode() != null ? address.getCountryCode() : "");
                     placemark.put("countryName", address.getCountryName() != null ? address.getCountryName() : "");
                     placemark.put("postalCode", address.getPostalCode() != null ? address.getPostalCode() : "");
@@ -126,8 +126,8 @@ public class NativeGeocoder {
                         if (!latitude.isEmpty() && !longitude.isEmpty()) {
                             // https://developer.android.com/reference/android/location/Address.html
                             JSObject placemark = new JSObject();
-                            placemark.put("latitude", latitude);
-                            placemark.put("longitude", longitude);
+                            placemark.put("latitude", address.getLatitude();
+                            placemark.put("longitude", address.getLongitude());
                             placemark.put("countryCode", address.getCountryCode() != null ? address.getCountryCode() : "");
                             placemark.put("countryName", address.getCountryName() != null ? address.getCountryName() : "");
                             placemark.put("postalCode", address.getPostalCode() != null ? address.getPostalCode() : "");
