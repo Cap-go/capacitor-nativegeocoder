@@ -1,6 +1,5 @@
 package ee.forgr.capacitor_nativegeocoder;
 
-import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
@@ -14,7 +13,7 @@ public class NativeGeocoderPlugin extends Plugin {
     @Override
     public void load() {
         super.load();
-        implementation.context = this.getContext()
+        implementation.context = this.getContext();
     }
 
     @PluginMethod
@@ -24,7 +23,7 @@ public class NativeGeocoderPlugin extends Plugin {
             call.reject("Missing addressString");
             return;
         }
-        implementation.reverseGeocode(addressString, call)
+        implementation.reverseGeocode(addressString, call);
     }
     @PluginMethod
     public void forwardGeocode(PluginCall call) {
@@ -34,6 +33,6 @@ public class NativeGeocoderPlugin extends Plugin {
             call.reject("Missing latitude or longitude");
             return;
         }
-        implementation.forwardGeocode(latitude, longitude, call)
+        implementation.forwardGeocode(latitude, longitude, call);
     }
 }

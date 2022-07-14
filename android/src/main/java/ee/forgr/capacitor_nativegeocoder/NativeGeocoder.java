@@ -1,9 +1,30 @@
 package ee.forgr.capacitor_nativegeocoder;
 
-import android.util.Log;
+import android.content.Context;
+import android.location.Address;
+import android.location.Geocoder;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Build;
+
+import com.getcapacitor.JSObject;
+import com.getcapacitor.PluginCall;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.List;
+import java.util.Locale;
+
+class NativeGeocoderOptions {
+  boolean useLocale = true;
+  String defaultLocale = null;
+  int maxResults = 1;
+}
 
 public class NativeGeocoder {
 
+    private Geocoder geocoder;
     public Context context;
     /**
      * Reverse geocode a given latitude and longitude to find location address
@@ -23,7 +44,7 @@ public class NativeGeocoder {
             return;
         }
 
-        NativeGeocoderOptions geocoderOptions = getNativeGeocoderOptions(options);
+        NativeGeocoderOptions geocoderOptions = getNativeGeocoderOptions(call);
         geocoder = createGeocoderWithOptions(geocoderOptions);
 
         try {
@@ -52,7 +73,9 @@ public class NativeGeocoder {
 
                     resultObj.put(placemark);
                 }
-                call.resolve(resultObj);
+                JSObject ret = new JSObject();
+                ret.put("addresses", resultObj);
+                call.resolve(ret);
             } else {
                 call.reject("Cannot get an address.");
             }
@@ -70,7 +93,6 @@ public class NativeGeocoder {
     /**
      * Forward geocode a given address to find coordinates
      * @param addressString String
-     * @param options JSONObject
      * @param call PluginCall
      */
     private void forwardGeocode(String addressString, PluginCall call) {
@@ -103,7 +125,7 @@ public class NativeGeocoder {
 
                         if (!latitude.isEmpty() && !longitude.isEmpty()) {
                             // https://developer.android.com/reference/android/location/Address.html
-                            JSONObject placemark = new JSONObject();
+                            JSObject placemark = new JSObject();
                             placemark.put("latitude", latitude);
                             placemark.put("longitude", longitude);
                             placemark.put("countryCode", address.getCountryCode() != null ? address.getCountryCode() : "");
@@ -128,7 +150,9 @@ public class NativeGeocoder {
                 if (resultObj.length() == 0) {
                     call.reject("Cannot get latitude and/or longitude.");
                 } else {
-                    call.resolve(resultObj);
+                    JSObject ret = new JSObject();
+                    ret.put("addresses", resultObj);
+                    call.resolve(ret);
                 }
 
             } else {
@@ -163,38 +187,16 @@ public class NativeGeocoder {
      * @param options JSONObject
      * @return NativeGeocoderOptions
      */
-    private NativeGeocoderOptions getNativeGeocoderOptions(JSONObject options) {
+    private NativeGeocoderOptions getNativeGeocoderOptions(PluginCall options) {
         NativeGeocoderOptions geocoderOptions = new NativeGeocoderOptions();
 
         if (options != null) {
-            try {
-                geocoderOptions.useLocale = !options.has("useLocale") || options.getBoolean("useLocale");
-            } catch (JSONException e) {
-                geocoderOptions.useLocale = true;
-            }
-
-            if (options.has("defaultLocale")) {
-                try {
-                    geocoderOptions.defaultLocale = options.getString("defaultLocale");
-                } catch (JSONException e) {
-                    geocoderOptions.defaultLocale = null;
-                }
-            } else {
-                geocoderOptions.defaultLocale = null;
-            }
-            if (options.has("maxResults")) {
-                try {
-                    geocoderOptions.maxResults = options.getInt("maxResults");
-                } catch (JSONException e) {
-                    geocoderOptions.maxResults = 1;
-                }
-
-                if (geocoderOptions.maxResults > 0) {
-                    int MAX_RESULTS_COUNT = 5;
-                    geocoderOptions.maxResults = Math.min(geocoderOptions.maxResults, MAX_RESULTS_COUNT);
-                } else {
-                    geocoderOptions.maxResults = 1;
-                }
+            geocoderOptions.useLocale = options.getBoolean("useLocale", false);
+            geocoderOptions.defaultLocale = options.getString("defaultLocale", null);
+            geocoderOptions.maxResults = options.getInt("maxResults", 1);
+            if (geocoderOptions.maxResults > 0) {
+                int MAX_RESULTS_COUNT = 5;
+                geocoderOptions.maxResults = Math.min(geocoderOptions.maxResults, MAX_RESULTS_COUNT);
             } else {
                 geocoderOptions.maxResults = 1;
             }
