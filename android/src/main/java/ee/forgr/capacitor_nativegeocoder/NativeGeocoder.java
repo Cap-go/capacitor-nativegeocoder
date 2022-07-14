@@ -32,7 +32,7 @@ public class NativeGeocoder {
      * @param longitude double
      * @param call PluginCall
      */
-    private void reverseGeocode(double latitude, double longitude, PluginCall call) {
+    public void reverseGeocode(double latitude, double longitude, PluginCall call) {
 
         if (latitude == 0 || longitude == 0) {
             call.reject("Expected two non-empty double arguments.");
@@ -95,7 +95,7 @@ public class NativeGeocoder {
      * @param addressString String
      * @param call PluginCall
      */
-    private void forwardGeocode(String addressString, PluginCall call) {
+    public void forwardGeocode(String addressString, PluginCall call) {
         if (addressString == null || addressString.length() == 0) {
             call.reject("Expected a non-empty string argument.");
             return;
