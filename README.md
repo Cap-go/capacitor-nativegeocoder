@@ -54,11 +54,15 @@ This API requires the following permissions be added to your `AndroidManifest.xm
 reverseGeocode(options: reverseOptions) => Promise<{ addresses: Adress[]; }>
 ```
 
+Convert latitude and longitude to an address
+
 | Param         | Type                                                      |
 | ------------- | --------------------------------------------------------- |
 | **`options`** | <code><a href="#reverseoptions">reverseOptions</a></code> |
 
 **Returns:** <code>Promise&lt;{ addresses: Adress[]; }&gt;</code>
+
+**Since:** 0.0.1
 
 --------------------
 
@@ -69,11 +73,15 @@ reverseGeocode(options: reverseOptions) => Promise<{ addresses: Adress[]; }>
 forwardGeocode(options: ForwardOptions) => Promise<{ addresses: Adress[]; }>
 ```
 
+Convert an address to latitude and longitude
+
 | Param         | Type                                                      |
 | ------------- | --------------------------------------------------------- |
 | **`options`** | <code><a href="#forwardoptions">ForwardOptions</a></code> |
 
 **Returns:** <code>Promise&lt;{ addresses: Adress[]; }&gt;</code>
+
+**Since:** 0.0.1
 
 --------------------
 
@@ -85,8 +93,8 @@ forwardGeocode(options: ForwardOptions) => Promise<{ addresses: Adress[]; }>
 
 | Prop                        | Type                  |
 | --------------------------- | --------------------- |
-| **`latitude`**              | <code>string</code>   |
-| **`longitude`**             | <code>string</code>   |
+| **`latitude`**              | <code>number</code>   |
+| **`longitude`**             | <code>number</code>   |
 | **`countryCode`**           | <code>string</code>   |
 | **`postalCode`**            | <code>string</code>   |
 | **`administrativeArea`**    | <code>string</code>   |
@@ -101,24 +109,24 @@ forwardGeocode(options: ForwardOptions) => Promise<{ addresses: Adress[]; }>
 
 #### reverseOptions
 
-| Prop                | Type                 |
-| ------------------- | -------------------- |
-| **`latitude`**      | <code>number</code>  |
-| **`longitude`**     | <code>number</code>  |
-| **`useLocale`**     | <code>boolean</code> |
-| **`defaultLocale`** | <code>string</code>  |
-| **`maxResults`**    | <code>number</code>  |
-| **`apiKey`**        | <code>string</code>  |
+| Prop                | Type                 | Description                                                              |
+| ------------------- | -------------------- | ------------------------------------------------------------------------ |
+| **`latitude`**      | <code>number</code>  | latitude is a number representing the latitude of the location.          |
+| **`longitude`**     | <code>number</code>  | longitude is a number representing the longitude of the location.        |
+| **`useLocale`**     | <code>boolean</code> | Localise the results to the given locale.                                |
+| **`defaultLocale`** | <code>string</code>  | locale is a string in the format of language_country, for example en_US. |
+| **`maxResults`**    | <code>number</code>  | Max number of results to return.                                         |
+| **`apiKey`**        | <code>string</code>  | Only used for web platform to use google api                             |
 
 
 #### ForwardOptions
 
-| Prop                | Type                 |
-| ------------------- | -------------------- |
-| **`addressString`** | <code>string</code>  |
-| **`useLocale`**     | <code>boolean</code> |
-| **`defaultLocale`** | <code>string</code>  |
-| **`maxResults`**    | <code>number</code>  |
-| **`apiKey`**        | <code>string</code>  |
+| Prop                | Type                 | Description                                                              |
+| ------------------- | -------------------- | ------------------------------------------------------------------------ |
+| **`addressString`** | <code>string</code>  | address is a string of the address to be geocoded.                       |
+| **`useLocale`**     | <code>boolean</code> | Localise the results to the given locale.                                |
+| **`defaultLocale`** | <code>string</code>  | locale is a string in the format of language_country, for example en_US. |
+| **`maxResults`**    | <code>number</code>  | Max number of results to return.                                         |
+| **`apiKey`**        | <code>string</code>  | Only used for web platform to use google api                             |
 
 </docgen-api>
