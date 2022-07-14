@@ -130,3 +130,6 @@ Convert an address to latitude and longitude
 | **`apiKey`**        | <code>string</code>  | Only used for web platform to use google api                             |
 
 </docgen-api>
+
+## Thanks
+To [@sebastianbaar](https://github.com/sebastianbaar) and his work on [cordova-plugin-nativegeocoder](https://github.com/sebastianbaar/cordova-plugin-nativegeocoder) what he made was very inspiring
