@@ -126,7 +126,7 @@ public class NativeGeocoder {
                         if (!latitude.isEmpty() && !longitude.isEmpty()) {
                             // https://developer.android.com/reference/android/location/Address.html
                             JSObject placemark = new JSObject();
-                            placemark.put("latitude", address.getLatitude();
+                            placemark.put("latitude", address.getLatitude());
                             placemark.put("longitude", address.getLongitude());
                             placemark.put("countryCode", address.getCountryCode() != null ? address.getCountryCode() : "");
                             placemark.put("countryName", address.getCountryName() != null ? address.getCountryName() : "");
