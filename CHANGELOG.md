@@ -1,0 +1,34 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### 0.1.17 (2022-07-27)
+
+
+### Features
+
+* add auto build and publish ([eae2ae0](https://github.com/Cap-go/capacitor-nativegeocoder/commit/eae2ae013ca4433f95b09320a68c29df37d62279))
+* v0 of the plugin ([10147e4](https://github.com/Cap-go/capacitor-nativegeocoder/commit/10147e482e8779680b00b54973d98772bf8f61f5))
+
+
+### Bug Fixes
+
+* add doc ([b799b21](https://github.com/Cap-go/capacitor-nativegeocoder/commit/b799b21007acaee1ea0e4ba70aa14f4b44de4fc0))
+* add licence ([d6df5d7](https://github.com/Cap-go/capacitor-nativegeocoder/commit/d6df5d7e0fae7bc53b5647f5c1d22009d2f0a815))
+* add lockfile ([ae9d991](https://github.com/Cap-go/capacitor-nativegeocoder/commit/ae9d991da6c9395fd9084f8587edb89d49e9b32e))
+* add missing instructions in readme ([46022c3](https://github.com/Cap-go/capacitor-nativegeocoder/commit/46022c3abd4ec9f19fe2c10ff64d619b6926d136))
+* CI ([69a4976](https://github.com/Cap-go/capacitor-nativegeocoder/commit/69a49766cd8db4b660402b214aafe6967f43b3c0))
+* convert issue ([621c928](https://github.com/Cap-go/capacitor-nativegeocoder/commit/621c928286544a72c91c880ad4827cb0cb6a4911))
+* definition ([ed1fc6d](https://github.com/Cap-go/capacitor-nativegeocoder/commit/ed1fc6de683b95050e9ba0b55731f799e120042b))
+* definition and web implem ([0335e32](https://github.com/Cap-go/capacitor-nativegeocoder/commit/0335e32eab08ba76e8622e70995f65fe86460517))
+* definitions ([2592c57](https://github.com/Cap-go/capacitor-nativegeocoder/commit/2592c573530e114bd2b78e5d0975a20d7a8d8126))
+* encoding ([460f0fd](https://github.com/Cap-go/capacitor-nativegeocoder/commit/460f0fd1387becc89afad91195b08ee3b462a739))
+* issue reverse call ([dc80698](https://github.com/Cap-go/capacitor-nativegeocoder/commit/dc80698802cf29921f8d8bc1e14abc5c3f98e57c))
+* keywords ([f95aee1](https://github.com/Cap-go/capacitor-nativegeocoder/commit/f95aee12fcdd1cb98bebef025737e30e3bb151e2))
+* last build issue ([92a3f25](https://github.com/Cap-go/capacitor-nativegeocoder/commit/92a3f252f30a35e6ec4e38a23878838d00605cae))
+* path issue ([32d1648](https://github.com/Cap-go/capacitor-nativegeocoder/commit/32d164878623231734acd51877de0d0d0299901e))
+* return type ([71e0737](https://github.com/Cap-go/capacitor-nativegeocoder/commit/71e0737b6dce60e9b8c888cfef7aa0b0912d9a4f))
+* return type of lat long ([86254a1](https://github.com/Cap-go/capacitor-nativegeocoder/commit/86254a12754f400be42675898495f7da90955174))
+* typo ([ebcb6b5](https://github.com/Cap-go/capacitor-nativegeocoder/commit/ebcb6b5307b4d13a2eb7297ca190e0a2bef67674))
+* typo swift ([9c645d9](https://github.com/Cap-go/capacitor-nativegeocoder/commit/9c645d918504294c71f418b6812a57753c09ab8e))
+* use good getter ([5673523](https://github.com/Cap-go/capacitor-nativegeocoder/commit/567352323c597ec512c80303df3179816491cbaa))
