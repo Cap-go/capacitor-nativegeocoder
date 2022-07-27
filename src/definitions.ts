@@ -2,6 +2,7 @@ export interface Adress {
   latitude:	number
   longitude:	number
   countryCode:	string
+  countryName:	string
   postalCode:	string
   administrativeArea:	string
   subAdministrativeArea:	string
@@ -10,7 +11,6 @@ export interface Adress {
   thoroughfare:	string
   subThoroughfare:	string
   areasOfInterest:	string[]
-  formatted_address: string
 }
 
 export interface ForwardOptions {

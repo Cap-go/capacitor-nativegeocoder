@@ -2,12 +2,13 @@ import { WebPlugin } from '@capacitor/core';
 
 import type { NativeGeocoderPlugin, reverseOptions, ForwardOptions, Adress } from './definitions';
 
-interface GeocoderResult  {
-    address_components: {
-      long_name: string;
-      short_name: string;
-      types: string[];
-    }[];
+interface AddressComponent  {
+  long_name: string;
+  short_name: string;
+  types: string[];
+}
+  interface GeocoderResult  {
+    address_components: AddressComponent[];
     formatted_address: string;
     geometry: {
       location: {
@@ -28,6 +29,9 @@ interface GeocoderResult  {
     };
   }
 
+const findAC = (address_components: AddressComponent[], type: string): AddressComponent => {
+  return address_components.find(component => component.types.includes(type)) || { long_name: '', short_name: '', types: [] };
+}
 export class NativeGeocoderWeb
   extends WebPlugin
   implements NativeGeocoderPlugin {
@@ -43,26 +47,29 @@ export class NativeGeocoderWeb
       }
       return fetch(`https://maps.googleapis.com/maps/api/geocode/json${new URLSearchParams(params).toString()}`)
         .then(response => response.json())
-        .then(data => {
-          return data.results.forEach((result: GeocoderResult) => {
-            // transform the response in Adress[]
-            // use the restul from google geocoder and transform it in Adress
-            return {
-              latitude: result.geometry.location.lat,
-              longitude: result.geometry.location.lng,
-              countryCode: result.address_components[0].long_name,
-              postalCode: result.address_components[1].long_name,
-              administrativeArea: result.address_components[2].long_name,
-              subAdministrativeArea: result.address_components[3].long_name,
-              locality: result.address_components[4].long_name,
-              subLocality: result.address_components[5].long_name,
-              thoroughfare: result.address_components[6].long_name,
-              subThoroughfare: result.address_components[7].long_name,
-              areasOfInterest: result.address_components[8].long_name,
-              formatted_address: result.formatted_address,
-            }
-          }).slice(0, options.maxResults || 1)
-        });
+        .then((data): { addresses:	Adress[] } => {
+          return { 
+            addresses: data.results.forEach((result: GeocoderResult): Adress => {
+              // transform the response in Adress[]
+              // use the restul from google geocoder and transform it in Adress
+
+              return {
+                latitude: result.geometry.location.lat,
+                longitude: result.geometry.location.lng,
+                countryCode: findAC(result.address_components, 'country').short_name,
+                countryName: findAC(result.address_components, 'country').long_name,
+                postalCode: findAC(result.address_components, 'postal_code').long_name,
+                administrativeArea: findAC(result.address_components, 'administrative_area_level_1').long_name,
+                subAdministrativeArea: findAC(result.address_components, 'administrative_area_level_2').long_name,
+                locality: findAC(result.address_components, 'locality').long_name,
+                subLocality: findAC(result.address_components, 'sublocality').long_name,
+                thoroughfare: findAC(result.address_components, 'route').long_name,
+                subThoroughfare: findAC(result.address_components, 'street_number').long_name,
+                areasOfInterest: [],
+              }
+            }).slice(0, options.maxResults || 1)
+          }
+      });
     };
     async forwardGeocode(options: ForwardOptions): Promise<{ addresses:	Adress[] }> {
       if (!options.apiKey) {
@@ -76,25 +83,27 @@ export class NativeGeocoderWeb
       }
       return fetch(`https://maps.googleapis.com/maps/api/geocode/json${new URLSearchParams(params).toString()}`)
         .then(response => response.json())
-        .then(data => {
-          return data.results.forEach((result: GeocoderResult) => {
-            // transform the response in Adress[]
-            // use the restul from google geocoder and transform it in Adress
-            return {
-              latitude: result.geometry.location.lat,
-              longitude: result.geometry.location.lng,
-              countryCode: result.address_components[0].long_name,
-              postalCode: result.address_components[1].long_name,
-              administrativeArea: result.address_components[2].long_name,
-              subAdministrativeArea: result.address_components[3].long_name,
-              locality: result.address_components[4].long_name,
-              subLocality: result.address_components[5].long_name,
-              thoroughfare: result.address_components[6].long_name,
-              subThoroughfare: result.address_components[7].long_name,
-              areasOfInterest: result.address_components[8].long_name,
-              formatted_address: result.formatted_address,
-            }
-          }).slice(0, options.maxResults || 1)
-        });
+        .then((data): { addresses:	Adress[] } => {
+          return { 
+            addresses: data.results.forEach((result: GeocoderResult): Adress => {
+              // transform the response in Adress[]
+              // use the restul from google geocoder and transform it in Adress
+              return {
+                latitude: result.geometry.location.lat,
+                longitude: result.geometry.location.lng,
+                countryCode: findAC(result.address_components, 'country').short_name,
+                countryName: findAC(result.address_components, 'country').long_name,
+                postalCode: findAC(result.address_components, 'postal_code').long_name,
+                administrativeArea: findAC(result.address_components, 'administrative_area_level_1').long_name,
+                subAdministrativeArea: findAC(result.address_components, 'administrative_area_level_2').long_name,
+                locality: findAC(result.address_components, 'locality').long_name,
+                subLocality: findAC(result.address_components, 'sublocality').long_name,
+                thoroughfare: findAC(result.address_components, 'route').long_name,
+                subThoroughfare: findAC(result.address_components, 'street_number').long_name,
+                areasOfInterest: [],
+              }
+            }).slice(0, options.maxResults || 1)
+          }
+        })
       };
 }
