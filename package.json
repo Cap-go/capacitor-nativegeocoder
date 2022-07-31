@@ -11,7 +11,7 @@
     "android/build.gradle",
     "dist/",
     "ios/Plugin/",
-    "CapgoNativegeocoder.podspec"
+    "CapgoCapgoNativegeocoder.podspec"
   ],
   "author": "Martin Donadieu",
   "license": "MIT",
