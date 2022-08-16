@@ -45,7 +45,7 @@ export class NativeGeocoderWeb
         ...(options.defaultLocale && {language: options.defaultLocale}),
         result_type: 'street_address',
       }
-      return fetch(`https://maps.googleapis.com/maps/api/geocode/json${new URLSearchParams(params).toString()}`)
+      return fetch(`https://maps.googleapis.com/maps/api/geocode/json?${new URLSearchParams(params).toString()}`)
         .then(response => response.json())
         .then((data): { addresses:	Adress[] } => {
           return { 
@@ -81,7 +81,7 @@ export class NativeGeocoderWeb
         ...(options.defaultLocale && {language: options.defaultLocale}),
         result_type: 'street_address',
       }
-      return fetch(`https://maps.googleapis.com/maps/api/geocode/json${new URLSearchParams(params).toString()}`)
+      return fetch(`https://maps.googleapis.com/maps/api/geocode/json?${new URLSearchParams(params).toString()}`)
         .then(response => response.json())
         .then((data): { addresses:	Adress[] } => {
           return { 
