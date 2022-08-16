@@ -7,27 +7,34 @@ interface AddressComponent  {
   short_name: string;
   types: string[];
 }
-  interface GeocoderResult  {
-    address_components: AddressComponent[];
-    formatted_address: string;
-    geometry: {
-      location: {
+interface GeocoderResult  {
+  address_components: AddressComponent[];
+  formatted_address: string;
+  geometry: {
+    location: {
+      lat: number;
+      lng: number;
+    };
+    location_type: string;
+    viewport: {
+      northeast: {
         lat: number;
         lng: number;
       };
-      location_type: string;
-      viewport: {
-        northeast: {
-          lat: number;
-          lng: number;
-        };
-        southwest: {
-          lat: number;
-          lng: number;
-        };
+      southwest: {
+        lat: number;
+        lng: number;
       };
     };
+  };
+}
+interface GeocoderPayload {
+  plus_code: {
+    compound_code: string, 
+    global_code: string
   }
+  results: GeocoderResult[];
+}
 
 const findAC = (address_components: AddressComponent[], type: string): AddressComponent => {
   return address_components.find(component => component.types.includes(type)) || { long_name: '', short_name: '', types: [] };
@@ -47,9 +54,9 @@ export class NativeGeocoderWeb
       }
       return fetch(`https://maps.googleapis.com/maps/api/geocode/json?${new URLSearchParams(params).toString()}`)
         .then(response => response.json())
-        .then((data): { addresses:	Adress[] } => {
+        .then((data: GeocoderPayload): { addresses:	Adress[] } => {
           return { 
-            addresses: data.results.forEach((result: GeocoderResult): Adress => {
+            addresses: data.results.map((result: GeocoderResult): Adress => {
               // transform the response in Adress[]
               // use the restul from google geocoder and transform it in Adress
 
@@ -83,9 +90,10 @@ export class NativeGeocoderWeb
       }
       return fetch(`https://maps.googleapis.com/maps/api/geocode/json?${new URLSearchParams(params).toString()}`)
         .then(response => response.json())
-        .then((data): { addresses:	Adress[] } => {
+        .then((data: GeocoderPayload): { addresses:	Adress[] } => {
+
           return { 
-            addresses: data.results.forEach((result: GeocoderResult): Adress => {
+            addresses: data.results.map((result: GeocoderResult): Adress => {
               // transform the response in Adress[]
               // use the restul from google geocoder and transform it in Adress
               return {
