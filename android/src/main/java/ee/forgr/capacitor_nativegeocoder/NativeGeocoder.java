@@ -6,26 +6,25 @@ import android.location.Geocoder;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
-
 import com.getcapacitor.JSObject;
 import com.getcapacitor.PluginCall;
-
+import java.util.List;
+import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.List;
-import java.util.Locale;
-
 class NativeGeocoderOptions {
-  boolean useLocale = true;
-  String defaultLocale = null;
-  int maxResults = 1;
+
+    boolean useLocale = true;
+    String defaultLocale = null;
+    int maxResults = 1;
 }
 
 public class NativeGeocoder {
 
     private Geocoder geocoder;
     public Context context;
+
     /**
      * Reverse geocode a given latitude and longitude to find location address
      * @param latitude double
@@ -33,7 +32,6 @@ public class NativeGeocoder {
      * @param call PluginCall
      */
     public void reverseGeocode(double latitude, double longitude, PluginCall call) {
-
         if (latitude == 0 || longitude == 0) {
             call.reject("Expected two non-empty double arguments.");
             return;
@@ -69,7 +67,10 @@ public class NativeGeocoder {
                     placemark.put("subLocality", address.getSubLocality() != null ? address.getSubLocality() : "");
                     placemark.put("thoroughfare", address.getThoroughfare() != null ? address.getThoroughfare() : "");
                     placemark.put("subThoroughfare", address.getSubThoroughfare() != null ? address.getSubThoroughfare() : "");
-                    placemark.put("areasOfInterest", address.getFeatureName() != null ? new JSONArray(new String[]{ address.getFeatureName()} ) : new JSONArray());
+                    placemark.put(
+                        "areasOfInterest",
+                        address.getFeatureName() != null ? new JSONArray(new String[] { address.getFeatureName() }) : new JSONArray()
+                    );
 
                     resultObj.put(placemark);
                 }
@@ -79,8 +80,7 @@ public class NativeGeocoder {
             } else {
                 call.reject("Cannot get an address.");
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             String errorMsg = e.getMessage();
             if (e.getMessage().equals("grpc failed") && !isNetworkAvailable()) {
                 errorMsg = "No Internet Access";
@@ -88,7 +88,6 @@ public class NativeGeocoder {
             call.reject("Geocoder:getFromLocationName Error: " + errorMsg);
         }
     }
-
 
     /**
      * Forward geocode a given address to find coordinates
@@ -137,12 +136,16 @@ public class NativeGeocoder {
                             placemark.put("subLocality", address.getSubLocality() != null ? address.getSubLocality() : "");
                             placemark.put("thoroughfare", address.getThoroughfare() != null ? address.getThoroughfare() : "");
                             placemark.put("subThoroughfare", address.getSubThoroughfare() != null ? address.getSubThoroughfare() : "");
-                            placemark.put("areasOfInterest", address.getFeatureName() != null ? new JSONArray(new String[]{ address.getFeatureName() }) : new JSONArray());
+                            placemark.put(
+                                "areasOfInterest",
+                                address.getFeatureName() != null
+                                    ? new JSONArray(new String[] { address.getFeatureName() })
+                                    : new JSONArray()
+                            );
 
                             resultObj.put(placemark);
                         }
-                    }
-                    catch (RuntimeException e) {
+                    } catch (RuntimeException e) {
                         e.printStackTrace();
                     }
                 }
@@ -154,12 +157,10 @@ public class NativeGeocoder {
                     ret.put("addresses", resultObj);
                     call.resolve(ret);
                 }
-
             } else {
                 call.reject("Cannot find a location.");
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             String errorMsg = e.getMessage();
             if (e.getMessage().equals("grpc failed") && !isNetworkAvailable()) {
                 errorMsg = "No Internet Access";
@@ -173,8 +174,7 @@ public class NativeGeocoder {
      * @return boolean
      */
     private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = null;
         if (connectivityManager != null) {
             activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -221,12 +221,9 @@ public class NativeGeocoder {
                 locale = Locale.forLanguageTag(geocoderOptions.defaultLocale);
             } else {
                 String[] parts = geocoderOptions.defaultLocale.split("[-_]", -1);
-                if (parts.length == 1)
-                    locale = new Locale(parts[0]);
-                else if (parts.length == 2 || (parts.length == 3 && parts[2].startsWith("#")))
-                    locale = new Locale(parts[0], parts[1]);
-                else
-                    locale = new Locale(parts[0], parts[1], parts[2]);
+                if (parts.length == 1) locale = new Locale(parts[0]); else if (
+                    parts.length == 2 || (parts.length == 3 && parts[2].startsWith("#"))
+                ) locale = new Locale(parts[0], parts[1]); else locale = new Locale(parts[0], parts[1], parts[2]);
             }
             geocoder = new Geocoder(context.getApplicationContext(), locale);
         } else {

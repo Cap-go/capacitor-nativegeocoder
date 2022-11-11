@@ -18,21 +18,22 @@ public class NativeGeocoderPlugin extends Plugin {
 
     @PluginMethod
     public void reverseGeocode(PluginCall call) {
-      Double latitude = call.getDouble("latitude");
-      Double longitude = call.getDouble("longitude");
-      if (latitude == null || longitude == null) {
-        call.reject("Missing latitude or longitude");
-        return;
-      }
-      implementation.reverseGeocode(latitude, longitude, call);
+        Double latitude = call.getDouble("latitude");
+        Double longitude = call.getDouble("longitude");
+        if (latitude == null || longitude == null) {
+            call.reject("Missing latitude or longitude");
+            return;
+        }
+        implementation.reverseGeocode(latitude, longitude, call);
     }
+
     @PluginMethod
     public void forwardGeocode(PluginCall call) {
-      String addressString = call.getString("addressString");
-      if (addressString == null) {
-        call.reject("Missing addressString");
-        return;
-      }
-      implementation.forwardGeocode(addressString, call);
+        String addressString = call.getString("addressString");
+        if (addressString == null) {
+            call.reject("Missing addressString");
+            return;
+        }
+        implementation.forwardGeocode(addressString, call);
     }
 }

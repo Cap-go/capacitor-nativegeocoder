@@ -101,6 +101,7 @@ Convert an address to latitude and longitude
 | **`latitude`**              | <code>number</code>   |
 | **`longitude`**             | <code>number</code>   |
 | **`countryCode`**           | <code>string</code>   |
+| **`countryName`**           | <code>string</code>   |
 | **`postalCode`**            | <code>string</code>   |
 | **`administrativeArea`**    | <code>string</code>   |
 | **`subAdministrativeArea`** | <code>string</code>   |
@@ -109,7 +110,6 @@ Convert an address to latitude and longitude
 | **`thoroughfare`**          | <code>string</code>   |
 | **`subThoroughfare`**       | <code>string</code>   |
 | **`areasOfInterest`**       | <code>string[]</code> |
-| **`formatted_address`**     | <code>string</code>   |
 
 
 #### reverseOptions
