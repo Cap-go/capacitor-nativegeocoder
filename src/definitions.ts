@@ -35,7 +35,7 @@ export interface ForwardOptions {
    */
   apiKey?: string;
 }
-export interface reverseOptions {
+export interface ReverseOptions {
   /**
    * latitude is a number representing the latitude of the location.
    */
@@ -70,7 +70,7 @@ export interface NativeGeocoderPlugin {
    * @throws An error if the something went wrong
    * @since 0.0.1
    */
-  reverseGeocode(options: reverseOptions): Promise<{ addresses: Address[] }>;
+  reverseGeocode(options: ReverseOptions): Promise<{ addresses: Address[] }>;
   /**
    * Convert an address to latitude and longitude
    *

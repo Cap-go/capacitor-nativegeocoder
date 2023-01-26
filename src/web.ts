@@ -1,6 +1,6 @@
 import { WebPlugin } from '@capacitor/core';
 
-import type { NativeGeocoderPlugin, reverseOptions, ForwardOptions, Address } from './definitions';
+import type { NativeGeocoderPlugin, ReverseOptions, ForwardOptions, Address } from './definitions';
 
 interface AddressComponent {
   long_name: string;
@@ -46,7 +46,7 @@ const findAC = (address_components: AddressComponent[], type: string): AddressCo
   );
 };
 export class NativeGeocoderWeb extends WebPlugin implements NativeGeocoderPlugin {
-  async reverseGeocode(options: reverseOptions): Promise<{ addresses: Address[] }> {
+  async reverseGeocode(options: ReverseOptions): Promise<{ addresses: Address[] }> {
     if (!options.apiKey) {
       throw new Error('apiKey is required for web');
     }
