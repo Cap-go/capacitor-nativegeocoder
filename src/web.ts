@@ -1,6 +1,6 @@
 import { WebPlugin } from '@capacitor/core';
 
-import type { NativeGeocoderPlugin, reverseOptions, ForwardOptions, Adress } from './definitions';
+import type { NativeGeocoderPlugin, reverseOptions, ForwardOptions, Address } from './definitions';
 
 interface AddressComponent {
   long_name: string;
@@ -46,7 +46,7 @@ const findAC = (address_components: AddressComponent[], type: string): AddressCo
   );
 };
 export class NativeGeocoderWeb extends WebPlugin implements NativeGeocoderPlugin {
-  async reverseGeocode(options: reverseOptions): Promise<{ addresses: Adress[] }> {
+  async reverseGeocode(options: reverseOptions): Promise<{ addresses: Address[] }> {
     if (!options.apiKey) {
       throw new Error('apiKey is required for web');
     }
@@ -58,12 +58,12 @@ export class NativeGeocoderWeb extends WebPlugin implements NativeGeocoderPlugin
     };
     return fetch(`https://maps.googleapis.com/maps/api/geocode/json?${new URLSearchParams(params).toString()}`)
       .then((response) => response.json())
-      .then((data: GeocoderPayload): { addresses: Adress[] } => {
+      .then((data: GeocoderPayload): { addresses: Address[] } => {
         return {
           addresses: data.results
-            .map((result: GeocoderResult): Adress => {
-              // transform the response in Adress[]
-              // use the restul from google geocoder and transform it in Adress
+            .map((result: GeocoderResult): Address => {
+              // transform the response in Address[]
+              // use the result from google geocoder and transform it in Address
 
               return {
                 latitude: result.geometry.location.lat,
@@ -84,7 +84,7 @@ export class NativeGeocoderWeb extends WebPlugin implements NativeGeocoderPlugin
         };
       });
   }
-  async forwardGeocode(options: ForwardOptions): Promise<{ addresses: Adress[] }> {
+  async forwardGeocode(options: ForwardOptions): Promise<{ addresses: Address[] }> {
     if (!options.apiKey) {
       throw new Error('apiKey is required for web');
     }
@@ -96,12 +96,12 @@ export class NativeGeocoderWeb extends WebPlugin implements NativeGeocoderPlugin
     };
     return fetch(`https://maps.googleapis.com/maps/api/geocode/json?${new URLSearchParams(params).toString()}`)
       .then((response) => response.json())
-      .then((data: GeocoderPayload): { addresses: Adress[] } => {
+      .then((data: GeocoderPayload): { addresses: Address[] } => {
         return {
           addresses: data.results
-            .map((result: GeocoderResult): Adress => {
-              // transform the response in Adress[]
-              // use the restul from google geocoder and transform it in Adress
+            .map((result: GeocoderResult): Address => {
+              // transform the response in Address[]
+              // use the result from google geocoder and transform it in Address
               return {
                 latitude: result.geometry.location.lat,
                 longitude: result.geometry.location.lng,

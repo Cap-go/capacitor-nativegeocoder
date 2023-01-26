@@ -1,4 +1,4 @@
-export interface Adress {
+export interface Address {
   latitude: number;
   longitude: number;
   countryCode: string;
@@ -66,17 +66,17 @@ export interface NativeGeocoderPlugin {
    * Convert latitude and longitude to an address
    *
    * @param id The bundle id to delete (note, this is the bundle id, NOT the version name)
-   * @returns {Promise<{addresses: Adress[]}>} an Promise with the list of addresses according to maxResults
+   * @returns {Promise<{addresses: Address[]}>} an Promise with the list of addresses according to maxResults
    * @throws An error if the something went wrong
    * @since 0.0.1
    */
-  reverseGeocode(options: reverseOptions): Promise<{ addresses: Adress[] }>;
+  reverseGeocode(options: reverseOptions): Promise<{ addresses: Address[] }>;
   /**
    * Convert an address to latitude and longitude
    *
-   * @returns {Promise<{addresses: Adress[]}>} an Promise with the list of addresses according to maxResults
+   * @returns {Promise<{addresses: Address[]}>} an Promise with the list of addresses according to maxResults
    * @throws An error if the something went wrong
    * @since 0.0.1
    */
-  forwardGeocode(options: ForwardOptions): Promise<{ addresses: Adress[] }>;
+  forwardGeocode(options: ForwardOptions): Promise<{ addresses: Address[] }>;
 }
