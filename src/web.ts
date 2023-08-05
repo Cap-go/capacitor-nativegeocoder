@@ -1,11 +1,11 @@
 import { WebPlugin } from "@capacitor/core";
 
-import type { 
-  NativeGeocoderPlugin, 
+import type {
+  NativeGeocoderPlugin,
   ReverseOptions,
   ForwardOptions,
-  Address
-} from './definitions';
+  Address,
+} from "./definitions";
 
 interface AddressComponent {
   long_name: string;
