@@ -2,6 +2,144 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.10](https://github.com/Cap-go/capacitor-nativegeocoder/compare/1.0.9...1.0.10) (2023-07-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.android.tools.build:gradle to v8.1.0 ([c35ee35](https://github.com/Cap-go/capacitor-nativegeocoder/commit/c35ee358fc0ab76c570ae94d55e856bb7273b044))
+
+### [1.0.9](https://github.com/Cap-go/capacitor-nativegeocoder/compare/1.0.8...1.0.9) (2023-07-17)
+
+### [1.0.8](https://github.com/Cap-go/capacitor-nativegeocoder/compare/1.0.7...1.0.8) (2023-07-03)
+
+### [1.0.7](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.2.0...v1.0.7) (2023-06-01)
+
+
+### Bug Fixes
+
+* build script ([2a1f7fb](https://github.com/Cap-go/capacitor-nativegeocoder/commit/2a1f7fb19c0c306e5b56cb99f04b5bbed7c27a3b))
+* bump script ([96ca04f](https://github.com/Cap-go/capacitor-nativegeocoder/commit/96ca04f1ab83d061b0ef7750ad1ff57e2973239e))
+* bump script ([0fe1ee4](https://github.com/Cap-go/capacitor-nativegeocoder/commit/0fe1ee451296a77286bd1b0dc67cff29bbafb3b6))
+* bump to v1 ([a370b12](https://github.com/Cap-go/capacitor-nativegeocoder/commit/a370b12763c9b11c458586a3c0683d5f5b6a59d5))
+* ci name ([1144a33](https://github.com/Cap-go/capacitor-nativegeocoder/commit/1144a33d81059cd66b6e724014251b4154857967))
+* **deps:** update dependency com.android.tools.build:gradle to v8.0.1 ([56e757f](https://github.com/Cap-go/capacitor-nativegeocoder/commit/56e757f653ef845bfdee064619ee9d379ed0041c))
+* **deps:** update dependency com.android.tools.build:gradle to v8.0.2 ([8cfc8ad](https://github.com/Cap-go/capacitor-nativegeocoder/commit/8cfc8ad94b154ad68249c0dfe395be265e0e824c))
+
+### [1.0.6](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.2.0...v1.0.6) (2023-05-29)
+
+
+### Bug Fixes
+
+* build script ([2a1f7fb](https://github.com/Cap-go/capacitor-nativegeocoder/commit/2a1f7fb19c0c306e5b56cb99f04b5bbed7c27a3b))
+* bump script ([96ca04f](https://github.com/Cap-go/capacitor-nativegeocoder/commit/96ca04f1ab83d061b0ef7750ad1ff57e2973239e))
+* bump script ([0fe1ee4](https://github.com/Cap-go/capacitor-nativegeocoder/commit/0fe1ee451296a77286bd1b0dc67cff29bbafb3b6))
+* bump to v1 ([a370b12](https://github.com/Cap-go/capacitor-nativegeocoder/commit/a370b12763c9b11c458586a3c0683d5f5b6a59d5))
+* ci name ([1144a33](https://github.com/Cap-go/capacitor-nativegeocoder/commit/1144a33d81059cd66b6e724014251b4154857967))
+* **deps:** update dependency com.android.tools.build:gradle to v8.0.1 ([56e757f](https://github.com/Cap-go/capacitor-nativegeocoder/commit/56e757f653ef845bfdee064619ee9d379ed0041c))
+* **deps:** update dependency com.android.tools.build:gradle to v8.0.2 ([8cfc8ad](https://github.com/Cap-go/capacitor-nativegeocoder/commit/8cfc8ad94b154ad68249c0dfe395be265e0e824c))
+
+### [1.0.5](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.2.0...v1.0.5) (2023-05-23)
+
+
+### Bug Fixes
+
+* build script ([2a1f7fb](https://github.com/Cap-go/capacitor-nativegeocoder/commit/2a1f7fb19c0c306e5b56cb99f04b5bbed7c27a3b))
+* bump script ([96ca04f](https://github.com/Cap-go/capacitor-nativegeocoder/commit/96ca04f1ab83d061b0ef7750ad1ff57e2973239e))
+* bump script ([0fe1ee4](https://github.com/Cap-go/capacitor-nativegeocoder/commit/0fe1ee451296a77286bd1b0dc67cff29bbafb3b6))
+* bump to v1 ([a370b12](https://github.com/Cap-go/capacitor-nativegeocoder/commit/a370b12763c9b11c458586a3c0683d5f5b6a59d5))
+* ci name ([1144a33](https://github.com/Cap-go/capacitor-nativegeocoder/commit/1144a33d81059cd66b6e724014251b4154857967))
+* **deps:** update dependency com.android.tools.build:gradle to v8.0.1 ([56e757f](https://github.com/Cap-go/capacitor-nativegeocoder/commit/56e757f653ef845bfdee064619ee9d379ed0041c))
+
+### [1.0.4](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.2.0...v1.0.4) (2023-05-23)
+
+
+### Bug Fixes
+
+* build script ([2a1f7fb](https://github.com/Cap-go/capacitor-nativegeocoder/commit/2a1f7fb19c0c306e5b56cb99f04b5bbed7c27a3b))
+* bump script ([96ca04f](https://github.com/Cap-go/capacitor-nativegeocoder/commit/96ca04f1ab83d061b0ef7750ad1ff57e2973239e))
+* bump script ([0fe1ee4](https://github.com/Cap-go/capacitor-nativegeocoder/commit/0fe1ee451296a77286bd1b0dc67cff29bbafb3b6))
+* bump to v1 ([a370b12](https://github.com/Cap-go/capacitor-nativegeocoder/commit/a370b12763c9b11c458586a3c0683d5f5b6a59d5))
+* ci name ([1144a33](https://github.com/Cap-go/capacitor-nativegeocoder/commit/1144a33d81059cd66b6e724014251b4154857967))
+* **deps:** update dependency com.android.tools.build:gradle to v8.0.1 ([56e757f](https://github.com/Cap-go/capacitor-nativegeocoder/commit/56e757f653ef845bfdee064619ee9d379ed0041c))
+
+### [1.0.3](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.2.0...v1.0.3) (2023-05-22)
+
+
+### Bug Fixes
+
+* build script ([2a1f7fb](https://github.com/Cap-go/capacitor-nativegeocoder/commit/2a1f7fb19c0c306e5b56cb99f04b5bbed7c27a3b))
+* bump script ([96ca04f](https://github.com/Cap-go/capacitor-nativegeocoder/commit/96ca04f1ab83d061b0ef7750ad1ff57e2973239e))
+* bump script ([0fe1ee4](https://github.com/Cap-go/capacitor-nativegeocoder/commit/0fe1ee451296a77286bd1b0dc67cff29bbafb3b6))
+* bump to v1 ([a370b12](https://github.com/Cap-go/capacitor-nativegeocoder/commit/a370b12763c9b11c458586a3c0683d5f5b6a59d5))
+* ci name ([1144a33](https://github.com/Cap-go/capacitor-nativegeocoder/commit/1144a33d81059cd66b6e724014251b4154857967))
+
+### [1.0.2](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.2.0...v1.0.2) (2023-05-22)
+
+
+### Bug Fixes
+
+* build script ([2a1f7fb](https://github.com/Cap-go/capacitor-nativegeocoder/commit/2a1f7fb19c0c306e5b56cb99f04b5bbed7c27a3b))
+* bump script ([96ca04f](https://github.com/Cap-go/capacitor-nativegeocoder/commit/96ca04f1ab83d061b0ef7750ad1ff57e2973239e))
+* bump script ([0fe1ee4](https://github.com/Cap-go/capacitor-nativegeocoder/commit/0fe1ee451296a77286bd1b0dc67cff29bbafb3b6))
+* bump to v1 ([a370b12](https://github.com/Cap-go/capacitor-nativegeocoder/commit/a370b12763c9b11c458586a3c0683d5f5b6a59d5))
+
+### [1.0.1](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.2.0...v1.0.1) (2023-05-22)
+
+
+### Bug Fixes
+
+* bump script ([96ca04f](https://github.com/Cap-go/capacitor-nativegeocoder/commit/96ca04f1ab83d061b0ef7750ad1ff57e2973239e))
+* bump script ([0fe1ee4](https://github.com/Cap-go/capacitor-nativegeocoder/commit/0fe1ee451296a77286bd1b0dc67cff29bbafb3b6))
+* bump to v1 ([a370b12](https://github.com/Cap-go/capacitor-nativegeocoder/commit/a370b12763c9b11c458586a3c0683d5f5b6a59d5))
+
+## [0.2.0](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.62...v0.2.0) (2023-05-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* update to capacitor 5
+
+### Features
+
+* update to capacitor 5 ([baad80e](https://github.com/Cap-go/capacitor-nativegeocoder/commit/baad80e1df7fd30c2341b8a1d278a788428be6b7))
+
+### [0.1.62](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.61...v0.1.62) (2023-05-22)
+
+### [0.1.61](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.60...v0.1.61) (2023-05-22)
+
+### [0.1.60](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.59...v0.1.60) (2023-05-15)
+
+### [0.1.59](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.58...v0.1.59) (2023-05-01)
+
+### [0.1.58](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.57...v0.1.58) (2023-05-01)
+
+### [0.1.57](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.56...v0.1.57) (2023-04-17)
+
+### [0.1.56](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.55...v0.1.56) (2023-04-10)
+
+### [0.1.55](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.54...v0.1.55) (2023-04-03)
+
+### [0.1.54](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.53...v0.1.54) (2023-03-20)
+
+### [0.1.53](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.52...v0.1.53) (2023-03-13)
+
+### [0.1.52](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.51...v0.1.52) (2023-03-13)
+
+### [0.1.51](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.50...v0.1.51) (2023-03-06)
+
+### [0.1.50](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.49...v0.1.50) (2023-02-27)
+
+### [0.1.49](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.48...v0.1.49) (2023-02-27)
+
+### [0.1.48](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.47...v0.1.48) (2023-02-20)
+
+### [0.1.47](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.46...v0.1.47) (2023-02-06)
+
+### [0.1.46](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.45...v0.1.46) (2023-02-06)
+
+### [0.1.45](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.44...v0.1.45) (2023-01-30)
+
 ### [0.1.44](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.43...v0.1.44) (2023-01-23)
 
 ### [0.1.43](https://github.com/Cap-go/capacitor-nativegeocoder/compare/v0.1.42...v0.1.43) (2023-01-16)
