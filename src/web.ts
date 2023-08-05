@@ -1,11 +1,11 @@
 import { WebPlugin } from "@capacitor/core";
 
-import type {
-  NativeGeocoderPlugin,
-  reverseOptions,
+import type { 
+  NativeGeocoderPlugin, 
+  ReverseOptions,
   ForwardOptions,
-  Adress,
-} from "./definitions";
+  Address
+} from './definitions';
 
 interface AddressComponent {
   long_name: string;
@@ -58,8 +58,8 @@ export class NativeGeocoderWeb
   implements NativeGeocoderPlugin
 {
   async reverseGeocode(
-    options: reverseOptions
-  ): Promise<{ addresses: Adress[] }> {
+    options: ReverseOptions
+  ): Promise<{ addresses: Address[] }> {
     if (!options.apiKey) {
       throw new Error("apiKey is required for web");
     }
@@ -75,12 +75,12 @@ export class NativeGeocoderWeb
       ).toString()}`
     )
       .then((response) => response.json())
-      .then((data: GeocoderPayload): { addresses: Adress[] } => {
+      .then((data: GeocoderPayload): { addresses: Address[] } => {
         return {
           addresses: data.results
-            .map((result: GeocoderResult): Adress => {
-              // transform the response in Adress[]
-              // use the restul from google geocoder and transform it in Adress
+            .map((result: GeocoderResult): Address => {
+              // transform the response in Address[]
+              // use the result from google geocoder and transform it in Address
 
               return {
                 latitude: result.geometry.location.lat,
@@ -118,7 +118,7 @@ export class NativeGeocoderWeb
   }
   async forwardGeocode(
     options: ForwardOptions
-  ): Promise<{ addresses: Adress[] }> {
+  ): Promise<{ addresses: Address[] }> {
     if (!options.apiKey) {
       throw new Error("apiKey is required for web");
     }
@@ -134,12 +134,12 @@ export class NativeGeocoderWeb
       ).toString()}`
     )
       .then((response) => response.json())
-      .then((data: GeocoderPayload): { addresses: Adress[] } => {
+      .then((data: GeocoderPayload): { addresses: Address[] } => {
         return {
           addresses: data.results
-            .map((result: GeocoderResult): Adress => {
-              // transform the response in Adress[]
-              // use the restul from google geocoder and transform it in Adress
+            .map((result: GeocoderResult): Address => {
+              // transform the response in Address[]
+              // use the result from google geocoder and transform it in Address
               return {
                 latitude: result.geometry.location.lat,
                 longitude: result.geometry.location.lng,
