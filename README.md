@@ -56,14 +56,14 @@ This API requires the following permissions be added to your `AndroidManifest.xm
 ### reverseGeocode(...)
 
 ```typescript
-reverseGeocode(options: reverseOptions) => any
+reverseGeocode(options: ReverseOptions) => any
 ```
 
 Convert latitude and longitude to an address
 
 | Param         | Type                                                      |
 | ------------- | --------------------------------------------------------- |
-| **`options`** | <code><a href="#reverseoptions">reverseOptions</a></code> |
+| **`options`** | <code><a href="#reverseoptions">ReverseOptions</a></code> |
 
 **Returns:** <code>any</code>
 
@@ -94,7 +94,7 @@ Convert an address to latitude and longitude
 ### Interfaces
 
 
-#### reverseOptions
+#### ReverseOptions
 
 | Prop                | Type                 | Description                                                              |
 | ------------------- | -------------------- | ------------------------------------------------------------------------ |
@@ -106,7 +106,7 @@ Convert an address to latitude and longitude
 | **`apiKey`**        | <code>string</code>  | Only used for web platform to use google api                             |
 
 
-#### Adress
+#### Address
 
 | Prop                        | Type                |
 | --------------------------- | ------------------- |

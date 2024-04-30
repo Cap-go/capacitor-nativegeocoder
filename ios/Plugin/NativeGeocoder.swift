@@ -99,29 +99,28 @@ struct NativeGeocoderOptions: Decodable {
         options.maxResults = call.getInt("maxResults") ?? 1
 
         forwardGeocodeHandler(address, options: options, completionHandler: { (resultObj, error) in
-            if let error = error as? CLError { 
+            if let error = error as? CLError {
                 var msg = "CLGeocoder:forwardGeocodeLocation Error"
                 switch error.code {
-                    case .locationUnknown:
-                        msg = "locationUnknown: location manager was unable to obtain a location value right now."
-                    case .denied:
-                        msg = "denied: user denied access to the location service."
-                    case .promptDeclined:
-                        msg = "promptDeclined: user didn’t grant the requested temporary authorization."
-                    case .network:
-                        msg = "network: network was unavailable or a network error occurred."
-                    case .headingFailure:
-                        msg = "headingFailure: heading could not be determined."
-                    case .rangingUnavailable:
-                        msg = "rangingUnavailable: ranging is disabled."
-                    case .rangingFailure:
-                        msg = "rangingFailure: a general ranging error occurred."
-                    default : break
+                case .locationUnknown:
+                    msg = "locationUnknown: location manager was unable to obtain a location value right now."
+                case .denied:
+                    msg = "denied: user denied access to the location service."
+                case .promptDeclined:
+                    msg = "promptDeclined: user didn’t grant the requested temporary authorization."
+                case .network:
+                    msg = "network: network was unavailable or a network error occurred."
+                case .headingFailure:
+                    msg = "headingFailure: heading could not be determined."
+                case .rangingUnavailable:
+                    msg = "rangingUnavailable: ranging is disabled."
+                case .rangingFailure:
+                    msg = "rangingFailure: a general ranging error occurred."
+                default: break
                 }
                 print(msg)
                 call.reject(msg)
-            }
-            else {
+            } else {
                 call.resolve(["addresses": resultObj])
             }
         })
