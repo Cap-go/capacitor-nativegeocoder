@@ -288,8 +288,10 @@ public class NativeGeocoder {
       geocoderOptions.maxResults = options.getInt("maxResults", 1);
       if (geocoderOptions.maxResults > 0) {
         int MAX_RESULTS_COUNT = 5;
-        geocoderOptions.maxResults =
-          Math.min(geocoderOptions.maxResults, MAX_RESULTS_COUNT);
+        geocoderOptions.maxResults = Math.min(
+          geocoderOptions.maxResults,
+          MAX_RESULTS_COUNT
+        );
       } else {
         geocoderOptions.maxResults = 1;
       }
@@ -319,19 +321,24 @@ public class NativeGeocoder {
         locale = Locale.forLanguageTag(geocoderOptions.defaultLocale);
       } else {
         String[] parts = geocoderOptions.defaultLocale.split("[-_]", -1);
-        if (parts.length == 1) locale = new Locale(parts[0]); else if (
+        if (parts.length == 1) locale = new Locale(parts[0]);
+        else if (
           parts.length == 2 || (parts.length == 3 && parts[2].startsWith("#"))
-        ) locale = new Locale(parts[0], parts[1]); else locale =
-          new Locale(parts[0], parts[1], parts[2]);
+        ) locale = new Locale(parts[0], parts[1]);
+        else locale = new Locale(parts[0], parts[1], parts[2]);
       }
       geocoder = new Geocoder(context.getApplicationContext(), locale);
     } else {
       if (geocoderOptions.useLocale) {
-        geocoder =
-          new Geocoder(context.getApplicationContext(), Locale.getDefault());
+        geocoder = new Geocoder(
+          context.getApplicationContext(),
+          Locale.getDefault()
+        );
       } else {
-        geocoder =
-          new Geocoder(context.getApplicationContext(), Locale.ENGLISH);
+        geocoder = new Geocoder(
+          context.getApplicationContext(),
+          Locale.ENGLISH
+        );
       }
     }
     return geocoder;

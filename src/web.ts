@@ -43,7 +43,7 @@ interface GeocoderPayload {
 
 const findAC = (
   address_components: AddressComponent[],
-  type: string
+  type: string,
 ): AddressComponent => {
   return (
     address_components.find((component) => component.types.includes(type)) || {
@@ -58,7 +58,7 @@ export class NativeGeocoderWeb
   implements NativeGeocoderPlugin
 {
   async reverseGeocode(
-    options: ReverseOptions
+    options: ReverseOptions,
   ): Promise<{ addresses: Address[] }> {
     if (!options.apiKey) {
       throw new Error("apiKey is required for web");
@@ -71,8 +71,8 @@ export class NativeGeocoderWeb
     };
     return fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?${new URLSearchParams(
-        params
-      ).toString()}`
+        params,
+      ).toString()}`,
     )
       .then((response) => response.json())
       .then((data: GeocoderPayload): { addresses: Address[] } => {
@@ -93,11 +93,11 @@ export class NativeGeocoderWeb
                   .long_name,
                 administrativeArea: findAC(
                   result.address_components,
-                  "administrative_area_level_1"
+                  "administrative_area_level_1",
                 ).long_name,
                 subAdministrativeArea: findAC(
                   result.address_components,
-                  "administrative_area_level_2"
+                  "administrative_area_level_2",
                 ).long_name,
                 locality: findAC(result.address_components, "locality")
                   .long_name,
@@ -107,7 +107,7 @@ export class NativeGeocoderWeb
                   .long_name,
                 subThoroughfare: findAC(
                   result.address_components,
-                  "street_number"
+                  "street_number",
                 ).long_name,
                 areasOfInterest: [],
               };
@@ -117,7 +117,7 @@ export class NativeGeocoderWeb
       });
   }
   async forwardGeocode(
-    options: ForwardOptions
+    options: ForwardOptions,
   ): Promise<{ addresses: Address[] }> {
     if (!options.apiKey) {
       throw new Error("apiKey is required for web");
@@ -130,8 +130,8 @@ export class NativeGeocoderWeb
     };
     return fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?${new URLSearchParams(
-        params
-      ).toString()}`
+        params,
+      ).toString()}`,
     )
       .then((response) => response.json())
       .then((data: GeocoderPayload): { addresses: Address[] } => {
@@ -151,11 +151,11 @@ export class NativeGeocoderWeb
                   .long_name,
                 administrativeArea: findAC(
                   result.address_components,
-                  "administrative_area_level_1"
+                  "administrative_area_level_1",
                 ).long_name,
                 subAdministrativeArea: findAC(
                   result.address_components,
-                  "administrative_area_level_2"
+                  "administrative_area_level_2",
                 ).long_name,
                 locality: findAC(result.address_components, "locality")
                   .long_name,
@@ -165,7 +165,7 @@ export class NativeGeocoderWeb
                   .long_name,
                 subThoroughfare: findAC(
                   result.address_components,
-                  "street_number"
+                  "street_number",
                 ).long_name,
                 areasOfInterest: [],
               };
