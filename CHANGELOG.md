@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.9](https://github.com/Cap-go/capacitor-nativegeocoder/compare/6.0.8...6.0.9) (2024-05-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.android.tools.build:gradle to v8.4.1 ([430cf09](https://github.com/Cap-go/capacitor-nativegeocoder/commit/430cf099e8a47d9c120490f35ffbb64653c52951))
+
 ### [6.0.8](https://github.com/Cap-go/capacitor-nativegeocoder/compare/6.0.7...6.0.8) (2024-05-20)
 
 ### [6.0.7](https://github.com/Cap-go/capacitor-nativegeocoder/compare/6.0.6...6.0.7) (2024-05-13)
