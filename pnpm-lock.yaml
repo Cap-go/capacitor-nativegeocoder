@@ -46,7 +46,7 @@ importers:
         version: 2.29.1(@typescript-eslint/parser@7.14.1(eslint@9.8.0)(typescript@5.5.4))(eslint@9.8.0)
       husky:
         specifier: ^9.0.11
-        version: 9.0.11
+        version: 9.1.4
       prettier:
         specifier: ^3.2.5
         version: 3.3.3
@@ -976,8 +976,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  husky@9.0.11:
-    resolution: {integrity: sha512-AB6lFlbwwyIqMdHYhwPe+kjOC3Oc5P3nThEoW/AaO2BX3vJDjWPFxYLxokUZOo6RNX20He3AaT8sESs9NJcmEw==}
+  husky@9.1.4:
+    resolution: {integrity: sha512-bho94YyReb4JV7LYWRWxZ/xr6TtOTt8cMfmQ39MQYJ7f/YE268s3GdghGwi+y4zAeqewE5zYLvuhV0M0ijsDEA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2802,7 +2802,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  husky@9.0.11: {}
+  husky@9.1.4: {}
 
   ignore@5.3.1: {}
 
