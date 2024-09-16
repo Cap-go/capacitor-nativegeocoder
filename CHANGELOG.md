@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.1.0](https://github.com/Cap-go/capacitor-nativegeocoder/compare/6.0.58...6.1.0) (2024-09-16)
+
+
+### Features
+
+* add resultType in web ([13e0952](https://github.com/Cap-go/capacitor-nativegeocoder/commit/13e095299bc0100bc5c33fd00e6aee133cb72cf5))
+
 ### [6.0.58](https://github.com/Cap-go/capacitor-nativegeocoder/compare/6.0.57...6.0.58) (2024-09-16)
 
 
