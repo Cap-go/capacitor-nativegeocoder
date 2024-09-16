@@ -67,7 +67,7 @@ export class NativeGeocoderWeb
       latlng: `${options.latitude},${options.longitude}`,
       key: options.apiKey,
       ...(options.defaultLocale && { language: options.defaultLocale }),
-      result_type: "street_address",
+      result_type: options.resultType || "street_address",
     };
     return fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?${new URLSearchParams(

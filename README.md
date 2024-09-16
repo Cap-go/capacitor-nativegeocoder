@@ -66,7 +66,7 @@ The return data is limited to the data available from the native API on the devi
 ### reverseGeocode(...)
 
 ```typescript
-reverseGeocode(options: ReverseOptions) => any
+reverseGeocode(options: ReverseOptions) => Promise<{ addresses: Address[]; }>
 ```
 
 Convert latitude and longitude to an address
@@ -75,7 +75,7 @@ Convert latitude and longitude to an address
 | ------------- | --------------------------------------------------------- |
 | **`options`** | <code><a href="#reverseoptions">ReverseOptions</a></code> |
 
-**Returns:** <code>any</code>
+**Returns:** <code>Promise&lt;{ addresses: Address[]; }&gt;</code>
 
 **Since:** 0.0.1
 
@@ -85,7 +85,7 @@ Convert latitude and longitude to an address
 ### forwardGeocode(...)
 
 ```typescript
-forwardGeocode(options: ForwardOptions) => any
+forwardGeocode(options: ForwardOptions) => Promise<{ addresses: Address[]; }>
 ```
 
 Convert an address to latitude and longitude
@@ -94,7 +94,7 @@ Convert an address to latitude and longitude
 | ------------- | --------------------------------------------------------- |
 | **`options`** | <code><a href="#forwardoptions">ForwardOptions</a></code> |
 
-**Returns:** <code>any</code>
+**Returns:** <code>Promise&lt;{ addresses: Address[]; }&gt;</code>
 
 **Since:** 0.0.1
 
@@ -102,6 +102,24 @@ Convert an address to latitude and longitude
 
 
 ### Interfaces
+
+
+#### Address
+
+| Prop                        | Type                  |
+| --------------------------- | --------------------- |
+| **`latitude`**              | <code>number</code>   |
+| **`longitude`**             | <code>number</code>   |
+| **`countryCode`**           | <code>string</code>   |
+| **`countryName`**           | <code>string</code>   |
+| **`postalCode`**            | <code>string</code>   |
+| **`administrativeArea`**    | <code>string</code>   |
+| **`subAdministrativeArea`** | <code>string</code>   |
+| **`locality`**              | <code>string</code>   |
+| **`subLocality`**           | <code>string</code>   |
+| **`thoroughfare`**          | <code>string</code>   |
+| **`subThoroughfare`**       | <code>string</code>   |
+| **`areasOfInterest`**       | <code>string[]</code> |
 
 
 #### ReverseOptions
@@ -114,24 +132,7 @@ Convert an address to latitude and longitude
 | **`defaultLocale`** | <code>string</code>  | locale is a string in the format of language_country, for example en_US. |
 | **`maxResults`**    | <code>number</code>  | Max number of results to return.                                         |
 | **`apiKey`**        | <code>string</code>  | Only used for web platform to use google api                             |
-
-
-#### Address
-
-| Prop                        | Type                |
-| --------------------------- | ------------------- |
-| **`latitude`**              | <code>number</code> |
-| **`longitude`**             | <code>number</code> |
-| **`countryCode`**           | <code>string</code> |
-| **`countryName`**           | <code>string</code> |
-| **`postalCode`**            | <code>string</code> |
-| **`administrativeArea`**    | <code>string</code> |
-| **`subAdministrativeArea`** | <code>string</code> |
-| **`locality`**              | <code>string</code> |
-| **`subLocality`**           | <code>string</code> |
-| **`thoroughfare`**          | <code>string</code> |
-| **`subThoroughfare`**       | <code>string</code> |
-| **`areasOfInterest`**       | <code>{}</code>     |
+| **`resultType`**    | <code>string</code>  | Only used for web platform to use google api                             |
 
 
 #### ForwardOptions

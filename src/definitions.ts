@@ -60,6 +60,10 @@ export interface ReverseOptions {
    * Only used for web platform to use google api
    */
   apiKey?: string;
+  /**
+   * Only used for web platform to use google api
+   */
+  resultType?: string;
 }
 export interface NativeGeocoderPlugin {
   /**
