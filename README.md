@@ -29,6 +29,7 @@ Apple requires privacy descriptions to be specified in `Info.plist` for location
 - `NSLocationWhenInUseUsageDescription` (`Privacy - Location When In Use Usage Description`)
 
 Read about [Configuring `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) in the [iOS Guide](https://capacitorjs.com/docs/ios) for more information on setting iOS permissions in Xcode
+The IOS implementation require internet
 
 ## Android
 
