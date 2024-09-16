@@ -42,6 +42,14 @@ This API requires the following permissions be added to your `AndroidManifest.xm
 <uses-feature android:name="android.hardware.location.gps" />
 ```
 
+## Web
+
+This API requires a Google API key to be set in the `apiKey` field of the `ForwardOptions` or `ReverseOptions` interfaces.
+
+There is no way to use this plugin on the web without a Google API key.
+
+The return data is limited to the data available from the native API on the device, as exemple `formatted_address` is not available in web implementation, as it's not available in the native API.
+
 ## API
 
 <docgen-index>
