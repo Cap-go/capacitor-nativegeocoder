@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.1.13](https://github.com/Cap-go/capacitor-nativegeocoder/compare/6.1.12...6.1.13) (2024-10-28)
+
 ### [6.1.12](https://github.com/Cap-go/capacitor-nativegeocoder/compare/6.1.11...6.1.12) (2024-10-21)
 
 ### [6.1.11](https://github.com/Cap-go/capacitor-nativegeocoder/compare/6.1.10...6.1.11) (2024-10-14)
