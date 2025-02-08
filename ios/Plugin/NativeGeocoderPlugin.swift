@@ -7,6 +7,12 @@ import Capacitor
  */
 @objc(NativeGeocoderPlugin)
 public class NativeGeocoderPlugin: CAPPlugin {
+    public let identifier = "NativeGeocoderPlugin"
+    public let jsName = "NativeGeocoder"
+    public let pluginMethods: [CAPPluginMethod] = [
+        CAPPluginMethod(name: "reverseGeocode", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "forwardGeocode", returnType: CAPPluginReturnPromise)
+    ]
     private let implementation = NativeGeocoder()
 
     @objc func reverseGeocode(_ call: CAPPluginCall) {

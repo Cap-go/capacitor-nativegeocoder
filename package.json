@@ -13,6 +13,8 @@
     "ios/Plugin/",
     "CapgoNativegeocoder.podspec"
   ],
+  "author": "Martin Donadieu <martin@capgo.app>",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Cap-go/capacitor-nativegeocoder.git"
@@ -29,7 +31,7 @@
   ],
   "scripts": {
     "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
-    "verify:ios": "cd ios && pod install && xcodebuild -workspace Plugin.xcworkspace -scheme Plugin && cd ..",
+    "verify:ios": "cd ios && pod install && xcodebuild -workspace Plugin.xcworkspace -sdk iphoneos -scheme Plugin && cd ..",
     "verify:android": "cd android && ./gradlew clean build test && cd ..",
     "verify:web": "npm run build",
     "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
@@ -41,11 +43,8 @@
     "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.mjs",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
-    "prepublishOnly": "npm run build",
-    "prepare": "husky install"
+    "prepublishOnly": "npm run build"
   },
-  "author": "Martin Donadieu <martindonadieu@gmail.com>",
-  "license": "MIT",
   "devDependencies": {
     "@capacitor/android": "^7.0.0",
     "@capacitor/cli": "^7.0.0",
@@ -55,20 +54,22 @@
     "@ionic/eslint-config": "^0.4.0",
     "@ionic/prettier-config": "^4.0.0",
     "@ionic/swiftlint-config": "^2.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.8.0",
-    "@typescript-eslint/parser": "^7.8.0",
+    "@types/node": "^22.13.1",
     "eslint": "^8.57.0",
-    "eslint-plugin-import": "^2.29.1",
-    "husky": "^9.0.11",
+    "eslint-plugin-import": "^2.31.0",
+    "husky": "^9.1.7",
     "prettier": "^3.4.2",
-    "prettier-plugin-java": "^2.6.6",
+    "prettier-plugin-java": "^2.6.7",
     "rimraf": "^6.0.1",
-    "rollup": "^4.30.1",
+    "rollup": "^4.34.6",
     "swiftlint": "^2.0.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.7.3"
   },
   "peerDependencies": {
     "@capacitor/core": ">=7.0.0"
+  },
+  "eslintConfig": {
+    "extends": "@ionic/eslint-config/recommended"
   },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",
