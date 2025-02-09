@@ -6,7 +6,7 @@ import Capacitor
  * here: https://capacitorjs.com/docs/plugins/ios
  */
 @objc(NativeGeocoderPlugin)
-public class NativeGeocoderPlugin: CAPPlugin {
+public class NativeGeocoderPlugin: CAPPlugin, CAPBridgedPlugin {
     public let identifier = "NativeGeocoderPlugin"
     public let jsName = "NativeGeocoder"
     public let pluginMethods: [CAPPluginMethod] = [
