@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.1](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.1.0...7.1.1) (2025-02-09)
+
+
+### Bug Fixes
+
+* missing class CAPBridgedPlugin ([92c8e75](https://github.com/Cap-go/capacitor-nativegeocoder/commit/92c8e753dcb1dfeee116e5b90d2ef298147786a7))
+
 ## [7.1.0](https://github.com/Cap-go/capacitor-nativegeocoder/compare/6.1.32...7.1.0) (2025-02-08)
 
 
