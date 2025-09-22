@@ -1,6 +1,13 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [7.2.0](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.1.8...7.2.0) (2025-09-22)
+
+
+### Features
+
+* **ios:** Add SPM support ([d9c9221](https://github.com/Cap-go/capacitor-nativegeocoder/commit/d9c922162f69273e7663f7b7ec88a3395574d537))
 
 ### [7.1.8](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.1.7...7.1.8) (2025-07-19)
 
