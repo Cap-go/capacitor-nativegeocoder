@@ -1,0 +1,10 @@
+{
+  "appId": "com.example.capgo.nativegeocoder",
+  "appName": "@capgo/nativegeocoder example",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}
