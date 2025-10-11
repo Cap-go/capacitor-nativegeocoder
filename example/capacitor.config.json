@@ -1,6 +1,6 @@
 {
-  "appId": "com.example.plugin",
-  "appName": "example",
+  "appId": "app.capgo.nativegeocoder",
+  "appName": "Native Geocoder Example",
   "bundledWebRuntime": true,
   "webDir": "www",
   "plugins": {
