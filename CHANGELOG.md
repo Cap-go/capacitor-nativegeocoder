@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.2.8](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.2.7...7.2.8) (2025-10-15)
+
+
+### Bug Fixes
+
+* lint config ([d2f72bf](https://github.com/Cap-go/capacitor-nativegeocoder/commit/d2f72bfa9c58b5e97f6164153fa7cb6eb2aa7d3f))
+
 ## [7.2.7](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.2.6...7.2.7) (2025-10-14)
 
 ## [7.2.6](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.2.5...7.2.6) (2025-10-11)
