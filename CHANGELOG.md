@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.2.11](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.2.10...7.2.11) (2025-10-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.google.gms:google-services to v4.4.4 ([9990251](https://github.com/Cap-go/capacitor-nativegeocoder/commit/9990251042ac39416598392097b27561f2c17da9))
+
 ## [7.2.10](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.2.9...7.2.10) (2025-10-16)
 
 ## [7.2.9](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.2.8...7.2.9) (2025-10-15)
