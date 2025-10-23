@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.3.1](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.3.0...7.3.1) (2025-10-23)
+
+
+### Bug Fixes
+
+* remove footer in discord ([15ebbd4](https://github.com/Cap-go/capacitor-nativegeocoder/commit/15ebbd4041cfa1bde452297704724e374198a755))
+* update Discord release notification username to include repository name ([2830cd6](https://github.com/Cap-go/capacitor-nativegeocoder/commit/2830cd60a1e01c64b209b41ab903dd2c76ca5bf8))
+
 ## [7.3.0](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.2.11...7.3.0) (2025-10-23)
 
 
