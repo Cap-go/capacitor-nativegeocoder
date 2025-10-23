@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.3.2](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.3.1...7.3.2) (2025-10-23)
+
+
+### Bug Fixes
+
+* add missing import for JSObject in NativeGeocoderPlugin ([eaca8cf](https://github.com/Cap-go/capacitor-nativegeocoder/commit/eaca8cfeea2f7baf52d35dec8f3ad1abf40a2eab))
+
 ## [7.3.1](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.3.0...7.3.1) (2025-10-23)
 
 
