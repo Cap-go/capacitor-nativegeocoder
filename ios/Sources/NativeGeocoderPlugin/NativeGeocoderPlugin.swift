@@ -7,11 +7,13 @@ import Capacitor
  */
 @objc(NativeGeocoderPlugin)
 public class NativeGeocoderPlugin: CAPPlugin, CAPBridgedPlugin {
+    private let PLUGIN_VERSION: String = ""
     public let identifier = "NativeGeocoderPlugin"
     public let jsName = "NativeGeocoder"
     public let pluginMethods: [CAPPluginMethod] = [
         CAPPluginMethod(name: "reverseGeocode", returnType: CAPPluginReturnPromise),
-        CAPPluginMethod(name: "forwardGeocode", returnType: CAPPluginReturnPromise)
+        CAPPluginMethod(name: "forwardGeocode", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "getPluginVersion", returnType: CAPPluginReturnPromise)
     ]
     private let implementation = NativeGeocoder()
 
@@ -34,4 +36,9 @@ public class NativeGeocoderPlugin: CAPPlugin, CAPBridgedPlugin {
         }
         implementation.forwardGeocode(address: addressString, call: call)
     }
+
+    @objc func getPluginVersion(_ call: CAPPluginCall) {
+        call.resolve(["version": self.PLUGIN_VERSION])
+    }
+
 }

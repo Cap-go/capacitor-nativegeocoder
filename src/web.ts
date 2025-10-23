@@ -121,4 +121,8 @@ export class NativeGeocoderWeb extends WebPlugin implements NativeGeocoderPlugin
         };
       });
   }
+
+  async getPluginVersion(): Promise<{ version: string }> {
+    return { version: 'web' };
+  }
 }
