@@ -7,7 +7,7 @@ import Capacitor
  */
 @objc(NativeGeocoderPlugin)
 public class NativeGeocoderPlugin: CAPPlugin, CAPBridgedPlugin {
-    private let PLUGIN_VERSION: String = ""
+    private let PLUGIN_VERSION: String = "7.3.0"
     public let identifier = "NativeGeocoderPlugin"
     public let jsName = "NativeGeocoder"
     public let pluginMethods: [CAPPluginMethod] = [

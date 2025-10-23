@@ -56,6 +56,7 @@ The return data is limited to the data available from the native API on the devi
 
 * [`reverseGeocode(...)`](#reversegeocode)
 * [`forwardGeocode(...)`](#forwardgeocode)
+* [`getPluginVersion()`](#getpluginversion)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -97,6 +98,19 @@ Convert an address to latitude and longitude
 **Returns:** <code>Promise&lt;{ addresses: Address[]; }&gt;</code>
 
 **Since:** 0.0.1
+
+--------------------
+
+
+### getPluginVersion()
+
+```typescript
+getPluginVersion() => Promise<{ version: string; }>
+```
+
+Get the native Capacitor plugin version
+
+**Returns:** <code>Promise&lt;{ version: string; }&gt;</code>
 
 --------------------
 

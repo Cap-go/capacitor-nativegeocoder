@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.3.0](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.2.11...7.3.0) (2025-10-23)
+
+
+### Features
+
+* add getPluginVersion method to NativeGeocoderPlugin and update workflows for changelog generation ([1114967](https://github.com/Cap-go/capacitor-nativegeocoder/commit/111496797e0ff49135d425911d8c629c98ca3b28))
+
+
+### Bug Fixes
+
+* remove content field from Discord release notification ([9164e28](https://github.com/Cap-go/capacitor-nativegeocoder/commit/9164e28e7aed649601bace7efdb9d8cf57d84d31))
+
 ## [7.2.11](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.2.10...7.2.11) (2025-10-17)
 
 
