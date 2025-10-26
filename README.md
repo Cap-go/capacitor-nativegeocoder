@@ -8,6 +8,10 @@
 
 Capacitor plugin for native forward and reverse geocoding
 
+## Documentation
+
+The most complete doc is available here: https://capgo.app/docs/plugins/nativegeocoder/
+
 ## Install
 
 ```bash
