@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.3.6](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.3.5...7.3.6) (2025-10-27)
+
+
+### Bug Fixes
+
+* renovate capacitor dep ([25aa4b9](https://github.com/Cap-go/capacitor-nativegeocoder/commit/25aa4b95434cf50951662296fd1dd51bfdf08913))
+
 ## [7.3.5](https://github.com/Cap-go/capacitor-nativegeocoder/compare/7.3.4...7.3.5) (2025-10-27)
 
 
