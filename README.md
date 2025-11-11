@@ -52,7 +52,7 @@ This API requires a Google API key to be set in the `apiKey` field of the `Forwa
 
 There is no way to use this plugin on the web without a Google API key.
 
-The return data is limited to the data available from the native API on the device, as exemple `formatted_address` is not available in web implementation, as it's not available in the native API.
+The return data is limited to the data available from the native API on the device, as example `formatted_address` is not available in web implementation, as it's not available in the native API.
 
 ## API
 
