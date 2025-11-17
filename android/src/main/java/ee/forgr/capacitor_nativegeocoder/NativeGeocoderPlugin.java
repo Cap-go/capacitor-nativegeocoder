@@ -9,7 +9,7 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 @CapacitorPlugin(name = "NativeGeocoder")
 public class NativeGeocoderPlugin extends Plugin {
 
-    private final String pluginVersion = "7.3.12";
+    private final String pluginVersion = "7.3.13";
 
     private NativeGeocoder implementation = new NativeGeocoder();
 
