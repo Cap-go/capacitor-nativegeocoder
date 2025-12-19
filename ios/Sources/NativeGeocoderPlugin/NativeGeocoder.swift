@@ -42,27 +42,18 @@ struct NativeGeocoderOptions: Decodable {
     private func reverseGeocodeLocationHandler(_ location: CLLocation, options: NativeGeocoderOptions, completionHandler: @escaping ReverseGeocodeCompletionHandler) {
         let geocoderOptions = getNativeGeocoderOptions(from: options)
 
-        if #available(iOS 11, *) {
-            var locale: Locale?
-            if let defaultLocaleString = geocoderOptions.defaultLocale {
-                locale = Locale.init(identifier: defaultLocaleString)
-            } else if geocoderOptions.useLocale == false {
-                locale = Locale.init(identifier: "en_US")
-            }
-
-            CLGeocoder().reverseGeocodeLocation(location, preferredLocale: locale, completionHandler: { [weak self] (placemarks, error) in
-                self?.createReverseGeocodeResult(placemarks, error, maxResults: geocoderOptions.maxResults, completionHandler: { (resultObj, error) in
-                    completionHandler(resultObj, error)
-                })
-            })
-        } else {
-            // fallback for < iOS 11
-            CLGeocoder().reverseGeocodeLocation(location, completionHandler: { [weak self] (placemarks, error) in
-                self?.createReverseGeocodeResult(placemarks, error, maxResults: geocoderOptions.maxResults, completionHandler: { (resultObj, error) in
-                    completionHandler(resultObj, error)
-                })
-            })
+        var locale: Locale?
+        if let defaultLocaleString = geocoderOptions.defaultLocale {
+            locale = Locale.init(identifier: defaultLocaleString)
+        } else if geocoderOptions.useLocale == false {
+            locale = Locale.init(identifier: "en_US")
         }
+
+        CLGeocoder().reverseGeocodeLocation(location, preferredLocale: locale, completionHandler: { [weak self] (placemarks, error) in
+            self?.createReverseGeocodeResult(placemarks, error, maxResults: geocoderOptions.maxResults, completionHandler: { (resultObj, error) in
+                completionHandler(resultObj, error)
+            })
+        })
     }
 
     private func createReverseGeocodeResult(_ placemarks: [CLPlacemark]?, _ error: Error?, maxResults: Int, completionHandler: @escaping ReverseGeocodeCompletionHandler) {
@@ -129,27 +120,18 @@ struct NativeGeocoderOptions: Decodable {
     func forwardGeocodeHandler(_ address: String, options: NativeGeocoderOptions, completionHandler: @escaping ForwardGeocodeCompletionHandler) {
         let geocoderOptions = getNativeGeocoderOptions(from: options)
 
-        if #available(iOS 11, *) {
-            var locale: Locale?
-            if let defaultLocaleString = geocoderOptions.defaultLocale {
-                locale = Locale.init(identifier: defaultLocaleString)
-            } else if geocoderOptions.useLocale == false {
-                locale = Locale.init(identifier: "en_US")
-            }
-
-            CLGeocoder().geocodeAddressString(address, in: nil, preferredLocale: locale, completionHandler: { [weak self] (placemarks, error) in
-                self?.createForwardGeocodeResult(placemarks, error, maxResults: geocoderOptions.maxResults, completionHandler: { (resultObj, error) in
-                    completionHandler(resultObj, error)
-                })
-            })
-        } else {
-            // fallback for < iOS 11
-            CLGeocoder().geocodeAddressString(address, completionHandler: { [weak self] (placemarks, error) in
-                self?.createForwardGeocodeResult(placemarks, error, maxResults: geocoderOptions.maxResults, completionHandler: { (resultObj, error) in
-                    completionHandler(resultObj, error)
-                })
-            })
+        var locale: Locale?
+        if let defaultLocaleString = geocoderOptions.defaultLocale {
+            locale = Locale.init(identifier: defaultLocaleString)
+        } else if geocoderOptions.useLocale == false {
+            locale = Locale.init(identifier: "en_US")
         }
+
+        CLGeocoder().geocodeAddressString(address, in: nil, preferredLocale: locale, completionHandler: { [weak self] (placemarks, error) in
+            self?.createForwardGeocodeResult(placemarks, error, maxResults: geocoderOptions.maxResults, completionHandler: { (resultObj, error) in
+                completionHandler(resultObj, error)
+            })
+        })
     }
 
     private func makePosition(_ placemark: CLPlacemark) -> JSObject {
