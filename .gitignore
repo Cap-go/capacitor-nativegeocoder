@@ -67,4 +67,4 @@ DerivedData/
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 .netrc
 Package.resolved
-/.build
+/.buildpackage-lock.json
