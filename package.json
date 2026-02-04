@@ -1,6 +1,6 @@
 {
   "name": "@capgo/nativegeocoder",
-  "version": "8.0.16",
+  "version": "8.0.17",
   "description": "Capacitor plugin for native forward and reverse geocoding",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
