@@ -1,6 +1,6 @@
 
 import './style.css';
-import { NativeGeocoder } from '@capgo/nativegeocoder';
+import { NativeGeocoder } from '@capgo/capacitor-nativegeocoder';
 
 const plugin = NativeGeocoder;
 const state = {};
