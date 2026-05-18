@@ -2,11 +2,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "CapgoNativegeocoder",
+    name: "CapgoCapacitorNativegeocoder",
     platforms: [.iOS(.v15)],
     products: [
         .library(
-            name: "CapgoNativegeocoder",
+            name: "CapgoCapacitorNativegeocoder",
             targets: ["NativeGeocoderPlugin"])
     ],
     dependencies: [

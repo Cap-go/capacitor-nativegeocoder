@@ -1,4 +1,4 @@
-# @capgo/nativegeocoder
+# @capgo/capacitor-nativegeocoder
 <a href="https://capgo.app/"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-nativegeocoder" alt="Capgo - Instant updates for Capacitor" /></a>
 
 <div align="center">
@@ -26,14 +26,14 @@ The most complete doc is available here: https://capgo.app/docs/plugins/nativege
 ## Install
 
 ```bash
-npm install @capgo/nativegeocoder
+npm install @capgo/capacitor-nativegeocoder
 npx cap sync
 ```
 
 then import this into your code:
 
 ```javascript
-import { NativeGeocoder } from '@capgo/nativegeocoder';
+import { NativeGeocoder } from '@capgo/capacitor-nativegeocoder';
 ```
 
 ## iOS

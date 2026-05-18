@@ -11,8 +11,8 @@ let package = Package(
             targets: ["CapApp-SPM"])
     ],
     dependencies: [
-        .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", from: "8.0.0"),
-        .package(name: "CapgoNativegeocoder", path: "../../../node_modules/.bun/@capgo+nativegeocoder@file+../node_modules/@capgo/nativegeocoder")
+        .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", exact: "8.3.3"),
+        .package(name: "CapgoCapacitorNativegeocoder", path: "../../../node_modules/.bun/@capgo+capacitor-nativegeocoder@file+../node_modules/@capgo/capacitor-nativegeocoder")
     ],
     targets: [
         .target(
@@ -20,7 +20,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Capacitor", package: "capacitor-swift-pm"),
                 .product(name: "Cordova", package: "capacitor-swift-pm"),
-                .product(name: "CapgoNativegeocoder", package: "CapgoNativegeocoder")
+                .product(name: "CapgoCapacitorNativegeocoder", package: "CapgoCapacitorNativegeocoder")
             ]
         )
     ]

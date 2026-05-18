@@ -1,4 +1,4 @@
-# Example App for `@capgo/nativegeocoder`
+# Example App for `@capgo/capacitor-nativegeocoder`
 
 This Vite project links directly to the local plugin source so you can exercise the native APIs while developing.
 
