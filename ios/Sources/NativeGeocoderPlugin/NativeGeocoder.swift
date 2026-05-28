@@ -16,7 +16,7 @@ struct NativeGeocoderOptions: Decodable {
 
     typealias ReverseGeocodeCompletionHandler = ([JSObject]?, NativeGeocoderError?) -> Void
     typealias ForwardGeocodeCompletionHandler = ([JSObject]?, NativeGeocoderError?) -> Void
-    private static let MAX_RESULTS_COUNT = 5
+    private static let maxResultsCount = 5
 
     func reverseGeocode(latitude: Double, longitude: Double, call: CAPPluginCall) {
         if CLGeocoder().isGeocoding {
@@ -66,8 +66,8 @@ struct NativeGeocoderOptions: Decodable {
             let maxResultObjects = placemarks.count >= maxResults ? maxResults : placemarks.count
             var resultObj = [JSObject]()
 
-            for i in 0..<maxResultObjects {
-                let placemark = makePosition(placemarks[i])
+            for index in 0..<maxResultObjects {
+                let placemark = makePosition(placemarks[index])
                 resultObj.append(placemark)
             }
 
@@ -161,10 +161,10 @@ struct NativeGeocoderOptions: Decodable {
             let maxResultObjects = placemarks.count >= maxResults ? maxResults : placemarks.count
             var resultObj = [JSObject]()
 
-            for i in 0..<maxResultObjects {
-                if let latitude = placemarks[i].location?.coordinate.latitude,
-                   let longitude = placemarks[i].location?.coordinate.longitude {
-                    let placemark = makePosition(placemarks[i])
+            for index in 0..<maxResultObjects {
+                if let latitude = placemarks[index].location?.coordinate.latitude,
+                   let longitude = placemarks[index].location?.coordinate.longitude {
+                    let placemark = makePosition(placemarks[index])
                     resultObj.append(placemark)
                 }
             }
@@ -185,7 +185,7 @@ struct NativeGeocoderOptions: Decodable {
         geocoderOptions.useLocale = options.useLocale
         geocoderOptions.defaultLocale = options.defaultLocale
         if options.maxResults > 0 {
-            geocoderOptions.maxResults = options.maxResults > NativeGeocoder.MAX_RESULTS_COUNT ? NativeGeocoder.MAX_RESULTS_COUNT : options.maxResults
+            geocoderOptions.maxResults = options.maxResults > NativeGeocoder.maxResultsCount ? NativeGeocoder.maxResultsCount : options.maxResults
         } else {
             geocoderOptions.maxResults = 1
         }
