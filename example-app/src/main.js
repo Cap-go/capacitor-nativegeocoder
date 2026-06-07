@@ -7,49 +7,76 @@ import { NativeGeocoder } from '@capgo/capacitor-nativegeocoder';
 const plugin = NativeGeocoder;
 const state = {};
 
-
 const actions = [
-{
-              id: 'forward-geocode',
-              label: 'Forward geocode',
-              description: 'Converts an address into coordinates. Provide a Google Maps API key when running on web.',
-              inputs: [{ name: 'addressString', label: 'Address', type: 'text', value: 'Paris, France' }, { name: 'maxResults', label: 'Max results', type: 'number', value: 3 }, { name: 'apiKey', label: 'Google Maps API key (web)', type: 'text', placeholder: 'YOUR_API_KEY' }],
-              run: async (values) => {
-                const addressString = values.addressString || '';
-if (!addressString) {
-  throw new Error('Provide an address.');
-}
-const options = { addressString };
-if (!Number.isNaN(Number(values.maxResults)) && values.maxResults !== null && values.maxResults !== '') {
-  options.maxResults = Number(values.maxResults);
-}
-if (values.apiKey) {
-  options.apiKey = values.apiKey;
-}
-return await plugin.forwardGeocode(options);
-              },
-            },
-{
-              id: 'reverse-geocode',
-              label: 'Reverse geocode',
-              description: 'Converts latitude/longitude into an address.',
-              inputs: [{ name: 'latitude', label: 'Latitude', type: 'number', value: 48.8566 }, { name: 'longitude', label: 'Longitude', type: 'number', value: 2.3522 }, { name: 'maxResults', label: 'Max results', type: 'number', value: 3 }, { name: 'apiKey', label: 'Google Maps API key (web)', type: 'text', placeholder: 'YOUR_API_KEY' }],
-              run: async (values) => {
-                const latitude = Number(values.latitude);
-const longitude = Number(values.longitude);
-if (Number.isNaN(latitude) || Number.isNaN(longitude)) {
-  throw new Error('Provide numeric latitude and longitude.');
-}
-const options = { latitude, longitude };
-if (!Number.isNaN(Number(values.maxResults)) && values.maxResults !== null && values.maxResults !== '') {
-  options.maxResults = Number(values.maxResults);
-}
-if (values.apiKey) {
-  options.apiKey = values.apiKey;
-}
-return await plugin.reverseGeocode(options);
-              },
-            }
+  {
+    id: 'forward-geocode',
+    label: 'Forward geocode',
+    description:
+      'Converts an address into coordinates. Provide a Google Maps API key when running on web.',
+    inputs: [
+      { name: 'addressString', label: 'Address', type: 'text', value: 'Paris, France' },
+      { name: 'maxResults', label: 'Max results', type: 'number', value: 3 },
+      {
+        name: 'apiKey',
+        label: 'Google Maps API key (web)',
+        type: 'text',
+        placeholder: 'YOUR_API_KEY',
+      },
+    ],
+    run: async (values) => {
+      const addressString = values.addressString || '';
+      if (!addressString) {
+        throw new Error('Provide an address.');
+      }
+      const options = { addressString };
+      if (
+        !Number.isNaN(Number(values.maxResults)) &&
+        values.maxResults !== null &&
+        values.maxResults !== ''
+      ) {
+        options.maxResults = Number(values.maxResults);
+      }
+      if (values.apiKey) {
+        options.apiKey = values.apiKey;
+      }
+      return await plugin.forwardGeocode(options);
+    },
+  },
+  {
+    id: 'reverse-geocode',
+    label: 'Reverse geocode',
+    description: 'Converts latitude/longitude into an address.',
+    inputs: [
+      { name: 'latitude', label: 'Latitude', type: 'number', value: 48.8566 },
+      { name: 'longitude', label: 'Longitude', type: 'number', value: 2.3522 },
+      { name: 'maxResults', label: 'Max results', type: 'number', value: 3 },
+      {
+        name: 'apiKey',
+        label: 'Google Maps API key (web)',
+        type: 'text',
+        placeholder: 'YOUR_API_KEY',
+      },
+    ],
+    run: async (values) => {
+      const latitude = Number(values.latitude);
+      const longitude = Number(values.longitude);
+      if (Number.isNaN(latitude) || Number.isNaN(longitude)) {
+        throw new Error('Provide numeric latitude and longitude.');
+      }
+      const options = { latitude, longitude };
+      if (
+        !Number.isNaN(Number(values.maxResults)) &&
+        values.maxResults !== null &&
+        values.maxResults !== ''
+      ) {
+        options.maxResults = Number(values.maxResults);
+      }
+      if (values.apiKey) {
+        options.apiKey = values.apiKey;
+      }
+      return await plugin.reverseGeocode(options);
+    },
+  },
 ];
 
 const actionSelect = document.getElementById('action-select');
