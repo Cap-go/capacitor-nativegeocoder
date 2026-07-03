@@ -4,7 +4,7 @@ import pkg from './package.json';
 
 const config: CapacitorConfig = {
   appId: 'app.capgo.nativegeocoder',
-  appName: 'Native Geocoder Example',
+  appName: '@capgo/capacitor-nativegeocoder',
   webDir: 'dist',
   plugins: {
     SplashScreen: {
