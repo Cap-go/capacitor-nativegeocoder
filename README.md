@@ -19,7 +19,7 @@ Turn coordinates into addresses and addresses into coordinates from your Capacit
 
 - **Reverse geocoding**: `reverseGeocode()` converts latitude and longitude to street, city, postal code and country.
 - **Forward geocoding**: `forwardGeocode()` converts an address to coordinates.
-- **Localized results**: `useLocale` and `defaultLocale` options.
+- **Localized results**: `useLocale` and `defaultLocale` on iOS and Android. Web uses `defaultLocale` for the request language.
 - **Result limit**: `maxResults` caps the number of matches.
 - **Platforms**: iOS, Android and Web. iOS uses Core Location, Android uses `Geocoder`. Web calls the Google Geocoding API with your `apiKey`.
 
