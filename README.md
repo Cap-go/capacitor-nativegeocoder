@@ -1,12 +1,27 @@
 # @capgo/capacitor-nativegeocoder
-<a href="https://capgo.app/"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-nativegeocoder" alt="Capgo - Instant updates for Capacitor" /></a>
+
+Turn coordinates into addresses and addresses into coordinates from your Capacitor app with the native geocoders on iOS and Android.
+
+<a href="https://capgo.app/?ref=plugin_nativegeocoder"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-nativegeocoder" alt="Capgo - Instant updates for Capacitor" /></a>
 
 <div align="center">
-  <h2><a href="https://capgo.app/?ref=plugin_nativegeocoder"> ➡️ Get Instant updates for your App with Capgo</a></h2>
-  <h2><a href="https://capgo.app/consulting/?ref=plugin_nativegeocoder"> Missing a feature? We’ll build the plugin for you 💪</a></h2>
+  <p><b>Capgo</b>: open-source live updates for Ionic and Capacitor apps. Ship OTA fixes and features instantly, without waiting for app store review.</p>
+  <h2><a href="https://capgo.app/register/?ref=plugin_nativegeocoder">➡️ Get started for free</a></h2>
+  <p>14-day unlimited free trial. No credit card required</p>
+  <p><a href="https://capgo.app/consulting/?ref=plugin_nativegeocoder">Missing a feature? We'll build the plugin for you 💪</a></p>
 </div>
 
-Capacitor plugin for native forward and reverse geocoding
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Cap-go/capacitor-nativegeocoder/main/assets/github-social-preview.png" alt="@capgo/capacitor-nativegeocoder for Capacitor apps" width="300" />
+</p>
+
+## Key features
+
+- **Reverse geocoding**: `reverseGeocode()` converts latitude and longitude to street, city, postal code and country.
+- **Forward geocoding**: `forwardGeocode()` converts an address to coordinates.
+- **Localized results**: `useLocale` and `defaultLocale` on iOS and Android. Web uses `defaultLocale` for the request language.
+- **Result limit**: `maxResults` caps the number of matches.
+- **Platforms**: iOS, Android and Web. iOS uses Core Location, Android uses `Geocoder`. Web calls the Google Geocoding API with your `apiKey`.
 
 ## Documentation
 
